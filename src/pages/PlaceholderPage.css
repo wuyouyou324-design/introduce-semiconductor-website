@@ -1,0 +1,69 @@
+.placeholder-page {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  background-color: #f8fafc;
+}
+
+.placeholder-container {
+  max-width: 640px;
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 48px;
+  text-align: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.placeholder-icon {
+  background-color: rgba(37, 99, 235, 0.1);
+  color: #2563eb;
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px auto;
+}
+
+.placeholder-container h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 12px 0;
+}
+
+.placeholder-container .subtitle {
+  font-size: 16px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 0 32px 0;
+}
+
+.placeholder-box {
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 24px;
+  text-align: left;
+  margin-bottom: 32px;
+}
+
+.placeholder-box h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 12px 0;
+}
+
+.placeholder-box ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.8;
+}
