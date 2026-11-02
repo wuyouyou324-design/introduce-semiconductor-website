@@ -24,10 +24,23 @@
   gap: 12px;
   cursor: pointer;
   transition: opacity 0.2s;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  padding: 0;
 }
 
 .logo-area:hover {
   opacity: 0.9;
+}
+
+.logo-area:focus-visible,
+.nav-link:focus-visible,
+.mobile-menu-toggle:focus-visible,
+.mobile-nav-link:focus-visible {
+  outline: 3px solid #38bdf8;
+  outline-offset: 3px;
 }
 
 .logo-icon {

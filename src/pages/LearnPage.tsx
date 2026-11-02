@@ -1,35 +1,14 @@
 import { useRouter } from '../app/router';
-import './PlaceholderPage.css';
+import './ContentPages.css';
+
+const lessons = [
+  ['01', '導體、絕緣體與半導體', '導體容易讓電子通過，絕緣體則阻擋電子；半導體的導電能力介於兩者之間，還能透過溫度與摻雜精準調整。'],
+  ['02', '矽晶體與共價鍵', '矽原子有四個價電子，會與鄰近原子形成穩定的共價鍵，這個晶體結構是製作晶片的材料基礎。'],
+  ['03', 'P 型與 N 型半導體', '在矽中加入不同雜質，可以創造電洞或自由電子，分別形成 P 型與 N 型半導體。'],
+  ['04', 'PN 接面與二極體', 'P 型和 N 型接合後形成耗盡區，電流較容易朝一個方向通過，這就是二極體的基本原理。'],
+];
 
 export function LearnPage() {
   const { navigate } = useRouter();
-
-  return (
-    <div className="placeholder-page">
-      <div className="placeholder-container">
-        <div className="placeholder-icon">
-          <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-          </svg>
-        </div>
-        <h1>半導體基礎學習</h1>
-        <p className="subtitle">
-          正在建構完整的半導體基礎課程，包含導體與絕緣體比較、矽的原子結構、P型與N型半導體、以及二極體與電晶體運作原理。
-        </p>
-        <div className="placeholder-box">
-          <h3>預計涵蓋單元：</h3>
-          <ul>
-            <li>單元 1：什麼是導體、絕緣體與半導體？</li>
-            <li>單元 2：矽晶體與電子共價鍵</li>
-            <li>單元 3：雜質掺雜：P型與N型半導體的誕生</li>
-            <li>單元 4：PN接面與二極體單向導電性</li>
-            <li>單元 5：電晶體：現代開關與放大器</li>
-          </ul>
-        </div>
-        <button type="button" className="btn-primary" onClick={() => navigate('/')}>
-          返回首頁
-        </button>
-      </div>
-    </div>
-  );
+  return <div className="content-page"><section className="content-hero"><span className="eyebrow">學習路徑 · 基礎核心</span><h1>半導體基礎學習</h1><p>用四個概念建立理解晶片的地基，最後看懂電晶體為何能成為數位世界的開關。</p></section><div className="content-container"><div className="lesson-grid">{lessons.map(([number, title, text]) => <article className="lesson-card" key={number}><span className="lesson-number">{number}</span><h2>{title}</h2><p>{text}</p></article>)}</div><section className="explain-panel" id="transistor"><div><span className="eyebrow">核心概念</span><h2>電晶體：用電流控制電流</h2><p>電晶體可以把小訊號放大，也可以像開關一樣在 0 與 1 之間快速切換。數十億顆電晶體組合起來，就能執行手機、電腦和 AI 系統的運算。</p></div><div className="binary-display" aria-label="電晶體的二進位開關示意"><span>OFF</span><strong>0 → 1</strong><span>ON</span></div></section><button type="button" className="back-link" onClick={() => navigate('/')}>← 回到首頁</button></div></div>;
 }
