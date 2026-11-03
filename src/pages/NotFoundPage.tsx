@@ -1,18 +1,20 @@
 import { useRouter } from '../app/router';
+import { useLanguage } from '../app/language';
 import './PlaceholderPage.css';
 
 export function NotFoundPage() {
   const { navigate } = useRouter();
+  const { t } = useLanguage();
 
   return (
     <div className="placeholder-page">
       <div className="placeholder-container">
-        <h1>404 - 找不到頁面</h1>
+        <h1>{t.notFoundTitle}</h1>
         <p className="subtitle">
-          很抱歉，您造訪的頁面不存在或已被移除。
+          {t.notFoundDesc}
         </p>
         <button type="button" className="btn-primary" onClick={() => navigate('/')}>
-          返回首頁
+          {t.returnHome}
         </button>
       </div>
     </div>

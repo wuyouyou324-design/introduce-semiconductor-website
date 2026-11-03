@@ -153,15 +153,19 @@
   background-color: #2563eb;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 @media (max-width: 768px) {
   .desktop-nav {
     display: none;
   }
-
   .mobile-menu-toggle {
     display: block;
   }
-
   .mobile-dropdown {
     display: block;
   }

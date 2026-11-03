@@ -1,4 +1,5 @@
 import { RouterProvider, useRouter } from './app/router';
+import { LanguageProvider } from './app/language';
 import { PageLayout } from './components/layout/PageLayout';
 import { HomePage } from './pages/HomePage';
 import { LearnPage } from './pages/LearnPage';
@@ -28,9 +29,11 @@ function AppContent() {
 
 export function App() {
   return (
-    <RouterProvider>
-      <AppContent />
-    </RouterProvider>
+    <LanguageProvider>
+      <RouterProvider>
+        <AppContent />
+      </RouterProvider>
+    </LanguageProvider>
   );
 }
 
