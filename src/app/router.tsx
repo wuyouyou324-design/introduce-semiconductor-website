@@ -19,8 +19,14 @@ const pageTitles: Record<string, string> = {
   '/glossary': '半導體詞彙表｜半導體啟蒙基地',
 };
 
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 function getPath() {
-  return window.location.pathname || '/';
+  const pathname = window.location.pathname;
+  if (basePath && (pathname === basePath || pathname.startsWith(`${basePath}/`))) {
+    return pathname.slice(basePath.length) || '/';
+  }
+  return pathname || '/';
 }
 
 function scrollToTop() {
@@ -45,10 +51,13 @@ export function RouterProvider({ children }: { children: ReactNode }) {
 
   const navigate = (path: string) => {
     const url = new URL(path, window.location.origin);
-    const nextPath = `${url.pathname}${url.search}${url.hash}`;
-    if (nextPath === `${window.location.pathname}${window.location.search}${window.location.hash}`) return;
-    window.history.pushState({}, '', nextPath);
-    setCurrentPath(url.pathname || '/');
+    const appPath = url.pathname || '/';
+    const browserPath = `${basePath}${appPath === '/' ? '/' : appPath}`;
+    const nextUrl = `${browserPath}${url.search}${url.hash}`;
+    const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+    if (nextUrl === currentUrl) return;
+    window.history.pushState({}, '', nextUrl);
+    setCurrentPath(appPath);
     scrollToTop();
   };
 
