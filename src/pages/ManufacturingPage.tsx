@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { useRouter } from '../app/router';
 import { useLanguage } from '../app/language';
+import { ManufacturingVisualizer } from '../components/ManufacturingVisualizer';
 import './ContentPages.css';
 
 export function ManufacturingPage() { 
   const { navigate } = useRouter(); 
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [active, setActive] = useState(0); 
   const steps = t.manufacturingSteps;
   const step = steps[active] || steps[0]; 
@@ -38,12 +39,10 @@ export function ManufacturingPage() {
             <span className="lesson-number">{step[0]}</span>
             <h2>{step[1]}</h2>
             <p>{step[2]}</p>
-            <div className="wafer-art" aria-hidden="true">
-              <span style={{ display: 'inline-block', width: '48px', height: '48px', border: '3px dashed #3b82f6', borderRadius: '50%' }} />
-            </div>
+            <ManufacturingVisualizer stepIndex={active} language={language} />
           </div>
         </section>
-        <button type="button" className="back-link" onClick={() => navigate('/')}>
+        <button type="button" className="back-link" onClick={() => navigate('/')} style={{ marginTop: '2rem' }}>
           {t.backHome}
         </button>
       </div>

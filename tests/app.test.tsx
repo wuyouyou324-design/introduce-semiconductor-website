@@ -40,11 +40,17 @@ describe('Introduce Semiconductor Website M1', () => {
     expect(screen.getByRole('heading', { name: '邏輯閘實驗室' })).toBeDefined();
   });
 
-  it('navigates to manufacturing page', () => {
+  it('navigates to manufacturing page and switches process steps with visualizer', () => {
     render(<App />);
     const mfgButtons = screen.getAllByText('晶片製造');
     fireEvent.click(mfgButtons[0]);
     expect(screen.getByRole('heading', { name: '晶片製造工藝' })).toBeDefined();
+    expect(screen.getByText('製程視覺化動態模擬')).toBeDefined();
+
+    // Click on step 2: 切片與拋光
+    const step2Button = screen.getByRole('tab', { name: /切片與拋光/ });
+    fireEvent.click(step2Button);
+    expect(screen.getByText('當前製程階段：Step 02')).toBeDefined();
   });
 
   it('navigates to glossary page', () => {
