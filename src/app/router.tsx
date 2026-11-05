@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
+import { getArticleById } from '../data/learnArticles';
 
 interface RouterContextType {
   currentPath: string;
@@ -46,7 +47,15 @@ export function RouterProvider({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
-    document.title = pageTitles[currentPath] ?? '找不到頁面｜半導體啟蒙基地';
+    let title = pageTitles[currentPath];
+    if (!title && currentPath.startsWith('/learn/')) {
+      const articleId = currentPath.replace('/learn/', '');
+      const article = getArticleById(articleId);
+      if (article) {
+        title = `${article.zh.title}｜半導體基礎學習｜半導體啟蒙基地`;
+      }
+    }
+    document.title = title ?? '找不到頁面｜半導體啟蒙基地';
   }, [currentPath]);
 
   const navigate = (path: string) => {

@@ -18,6 +18,21 @@ describe('Introduce Semiconductor Website M1', () => {
     expect(screen.getByRole('heading', { name: '半導體基礎學習' })).toBeDefined();
   });
 
+  it('navigates to individual article when a learning lesson card is clicked', () => {
+    render(<App />);
+    const learnButtons = screen.getAllByText('學習路徑');
+    fireEvent.click(learnButtons[0]);
+    
+    // Click on the first lesson card
+    const articleLink = screen.getByText('導體、絕緣體與半導體');
+    fireEvent.click(articleLink);
+
+    // Verify we are inside the article view
+    expect(screen.getByRole('heading', { name: '導體、絕緣體與半導體' })).toBeDefined();
+    expect(screen.getByText('能量能隙與導電控制')).toBeDefined();
+    expect(screen.getByText('← 返回學習列表')).toBeDefined();
+  });
+
   it('navigates to logic gates lab page', () => {
     render(<App />);
     const labButtons = screen.getAllByText('邏輯閘實驗室');

@@ -3,6 +3,7 @@ import { LanguageProvider } from './app/language';
 import { PageLayout } from './components/layout/PageLayout';
 import { HomePage } from './pages/HomePage';
 import { LearnPage } from './pages/LearnPage';
+import { LearnArticlePage } from './pages/LearnArticlePage';
 import { LogicGatesLabPage } from './pages/LogicGatesLabPage';
 import { ManufacturingPage } from './pages/ManufacturingPage';
 import { GlossaryPage } from './pages/GlossaryPage';
@@ -16,6 +17,9 @@ function AppContent() {
     page = <HomePage />;
   } else if (currentPath === '/learn') {
     page = <LearnPage />;
+  } else if (currentPath.startsWith('/learn/')) {
+    const articleId = currentPath.replace('/learn/', '');
+    page = <LearnArticlePage articleId={articleId} />;
   } else if (currentPath === '/lab/logic-gates') {
     page = <LogicGatesLabPage />;
   } else if (currentPath === '/manufacturing') {

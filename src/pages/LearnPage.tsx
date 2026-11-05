@@ -1,10 +1,11 @@
 import { useRouter } from '../app/router';
 import { useLanguage } from '../app/language';
+import { learnArticles } from '../data/learnArticles';
 import './ContentPages.css';
 
 export function LearnPage() {
   const { navigate } = useRouter();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <div className="content-page">
@@ -15,13 +16,25 @@ export function LearnPage() {
       </section>
       <div className="content-container">
         <div className="lesson-grid">
-          {t.lessons.map(([number, title, text]) => (
-            <article className="lesson-card" key={number}>
-              <span className="lesson-number">{number}</span>
-              <h2>{title}</h2>
-              <p>{text}</p>
-            </article>
-          ))}
+          {learnArticles.map((article) => {
+            const content = article[language];
+            return (
+              <button
+                type="button"
+                className="lesson-card lesson-card-btn"
+                key={article.id}
+                onClick={() => navigate(`/learn/${article.id}`)}
+                style={{ textAlign: 'left', cursor: 'pointer', background: 'inherit', border: '1px solid var(--border-color, #e2e8f0)', width: '100%', font: 'inherit' }}
+              >
+                <span className="lesson-number">{article.number}</span>
+                <h2>{content.title}</h2>
+                <p>{content.summary}</p>
+                <span className="path-action" style={{ marginTop: '1rem', display: 'inline-block', color: '#2563eb', fontWeight: 500 }}>
+                  {language === 'zh' ? '閱讀文章' : 'Read Article'} <span aria-hidden="true">→</span>
+                </span>
+              </button>
+            );
+          })}
         </div>
         <section className="explain-panel" id="transistor">
           <div>
