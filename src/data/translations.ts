@@ -40,12 +40,15 @@ export const translations = {
     // Logic Gates Lab
     labEyebrow: '互動體驗 · 數位邏輯',
     labTitle: '邏輯閘實驗室',
-    labDesc: '切換輸入，觀察不同邏輯閘如何根據布林規則產生輸出。',
+    labDesc: '切換輸入，觀察單一邏輯閘或串接電路如何根據布林規則運算。',
     inputA: '輸入 A',
     inputB: '輸入 B',
     output: '輸出',
     truthTable: '真值表',
     selectGate: '選擇邏輯閘',
+    singleGateLab: '單一邏輯閘',
+    circuitBuilderLab: '串接電路與半加器',
+    selectCircuit: '選擇電路模式',
 
     // Manufacturing Page
     mfgEyebrow: '製程探索 · 從砂到晶片',
@@ -147,12 +150,15 @@ export const translations = {
     // Logic Gates Lab
     labEyebrow: 'Interactive Experience · Digital Logic',
     labTitle: 'Logic Gates Lab',
-    labDesc: 'Toggle inputs and observe how different logic gates generate outputs based on Boolean rules.',
+    labDesc: 'Toggle inputs and observe single gates or cascaded circuits generating outputs based on Boolean rules.',
     inputA: 'Input A',
     inputB: 'Input B',
     output: 'Output',
     truthTable: 'Truth Table',
     selectGate: 'Select Logic Gate',
+    singleGateLab: 'Single Gate',
+    circuitBuilderLab: 'Cascaded & Half-Adder',
+    selectCircuit: 'Select Circuit Mode',
 
     // Manufacturing Page
     mfgEyebrow: 'Process Exploration · From Sand to Chip',
