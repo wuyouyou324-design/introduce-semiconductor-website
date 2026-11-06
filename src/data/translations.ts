@@ -72,6 +72,7 @@ export const translations = {
       ['02', '矽晶體與共價鍵', '矽原子有四個價電子，會與鄰近原子形成穩定的共價鍵，這個晶體結構是製作晶片的材料基礎。'],
       ['03', 'P 型與 N 型半導體', '在矽中加入不同雜質，可以創造電洞或自由電子，分別形成 P 型與 N 型半導體。'],
       ['04', 'PN 接面與二極體', 'P 型和 N 型接合後形成耗盡區，電流較容易朝一個方向通過，這就是二極體的基本原理。'],
+      ['05', 'MOSFET：數位世界的微型開關', '利用電場效應控制通道開關，數十億顆 MOSFET 支撐了整個電腦、手機與 AI 時代。'],
     ],
     learningPaths: [
       { title: '半導體基礎', description: '從原子結構出發，認識導體、絕緣體與半導體的差別，探索矽的奧秘與電晶體原理。', tag: '基礎核心' },
@@ -178,6 +179,7 @@ export const translations = {
       ['02', 'Silicon Crystals and Covalent Bonds', 'Silicon atoms have four valence electrons, forming stable covalent bonds with neighboring atoms. This crystal structure is the material foundation of chips.'],
       ['03', 'P-type and N-type Semiconductors', 'Adding different impurities into silicon creates electron holes or free electrons, forming P-type and N-type semiconductors respectively.'],
       ['04', 'PN Junction and Diode', 'Combining P-type and N-type creates a depletion region where current flows more easily in one direction. This is the basic principle of a diode.'],
+      ['05', 'MOSFET: The Microscopic Switch', 'Using electric fields to control channel switching, billions of MOSFETs support the entire computer, phone, and AI era.'],
     ],
     learningPaths: [
       { title: 'Semiconductor Basics', description: 'Starting from atomic structure, understand the differences between conductors, insulators, and semiconductors, exploring silicon mysteries and transistor principles.', tag: 'Core Basics' },
