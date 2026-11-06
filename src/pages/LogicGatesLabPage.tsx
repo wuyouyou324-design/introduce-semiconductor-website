@@ -45,9 +45,16 @@ function GateSvg({ gate, a, b, outVal }: { gate: Gate; a: number; b: number; out
   const strokeColor = '#2563eb';
   const activeColor = '#22c55e';
   
+  let outX1 = 140;
+  if (gate === 'AND') outX1 = 155;
+  else if (gate === 'NAND') outX1 = 167;
+  else if (gate === 'NOR' || gate === 'XNOR') outX1 = 152;
+  else if (gate === 'NOT') outX1 = 142;
+  else if (gate === 'OR' || gate === 'XOR') outX1 = 140;
+
   return (
     <div className="gate-svg-container" style={{ display: 'flex', justifyContent: 'center', margin: '20px 0' }}>
-      <svg width="260" height="140" viewBox="0 0 260 140" style={{ background: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+      <svg width="280" height="140" viewBox="0 0 280 140" style={{ background: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
         {/* Input A Line */}
         <line x1="20" y1={isUnary ? "70" : "45"} x2="70" y2={isUnary ? "70" : "45"} stroke={a ? activeColor : '#94a3b8'} strokeWidth="4" />
         <circle cx="20" cy={isUnary ? "70" : "45"} r="6" fill={a ? activeColor : '#94a3b8'} />
@@ -67,7 +74,7 @@ function GateSvg({ gate, a, b, outVal }: { gate: Gate; a: number; b: number; out
           <path d="M 70 25 L 110 25 A 45 45 0 0 1 110 115 L 70 115 Z" fill="#ffffff" stroke={strokeColor} strokeWidth="4" />
         )}
         {gate === 'OR' && (
-          <path d="M 70 25 Q 95 25 130 70 Q 95 115 70 115 Q 85 70 70 25 Z" fill="#ffffff" stroke={strokeColor} strokeWidth="4" />
+          <path d="M 70 25 Q 95 25 140 70 Q 95 115 70 115 Q 85 70 70 25 Z" fill="#ffffff" stroke={strokeColor} strokeWidth="4" />
         )}
         {gate === 'NOT' && (
           <polygon points="70,30 130,70 70,110" fill="#ffffff" stroke={strokeColor} strokeWidth="4" />
@@ -75,40 +82,40 @@ function GateSvg({ gate, a, b, outVal }: { gate: Gate; a: number; b: number; out
         {gate === 'NAND' && (
           <>
             <path d="M 70 25 L 110 25 A 45 45 0 0 1 110 115 L 70 115 Z" fill="#ffffff" stroke={strokeColor} strokeWidth="4" />
-            <circle cx="121" cy="70" r="6" fill="#ffffff" stroke={strokeColor} strokeWidth="4" />
+            <circle cx="161" cy="70" r="6" fill="#ffffff" stroke={strokeColor} strokeWidth="4" />
           </>
         )}
         {gate === 'NOR' && (
           <>
-            <path d="M 70 25 Q 95 25 130 70 Q 95 115 70 115 Q 85 70 70 25 Z" fill="#ffffff" stroke={strokeColor} strokeWidth="4" />
-            <circle cx="137" cy="70" r="6" fill="#ffffff" stroke={strokeColor} strokeWidth="4" />
+            <path d="M 70 25 Q 95 25 140 70 Q 95 115 70 115 Q 85 70 70 25 Z" fill="#ffffff" stroke={strokeColor} strokeWidth="4" />
+            <circle cx="146" cy="70" r="6" fill="#ffffff" stroke={strokeColor} strokeWidth="4" />
           </>
         )}
         {gate === 'XOR' && (
           <>
             <path d="M 62 25 Q 77 70 62 115" fill="none" stroke={strokeColor} strokeWidth="3" />
-            <path d="M 70 25 Q 95 25 130 70 Q 95 115 70 115 Q 85 70 70 25 Z" fill="#ffffff" stroke={strokeColor} strokeWidth="4" />
+            <path d="M 70 25 Q 95 25 140 70 Q 95 115 70 115 Q 85 70 70 25 Z" fill="#ffffff" stroke={strokeColor} strokeWidth="4" />
           </>
         )}
         {gate === 'XNOR' && (
           <>
             <path d="M 62 25 Q 77 70 62 115" fill="none" stroke={strokeColor} strokeWidth="3" />
-            <path d="M 70 25 Q 95 25 130 70 Q 95 115 70 115 Q 85 70 70 25 Z" fill="#ffffff" stroke={strokeColor} strokeWidth="4" />
-            <circle cx="137" cy="70" r="6" fill="#ffffff" stroke={strokeColor} strokeWidth="4" />
+            <path d="M 70 25 Q 95 25 140 70 Q 95 115 70 115 Q 85 70 70 25 Z" fill="#ffffff" stroke={strokeColor} strokeWidth="4" />
+            <circle cx="146" cy="70" r="6" fill="#ffffff" stroke={strokeColor} strokeWidth="4" />
           </>
         )}
 
         {/* Output Line */}
         <line 
-          x1={['NAND', 'NOR', 'XNOR'].includes(gate) ? "127" : (gate === 'NOT' ? "130" : (gate === 'AND' ? "110" : "130"))} 
+          x1={outX1} 
           y1="70" 
-          x2="240" 
+          x2="260" 
           y2="70" 
           stroke={outVal ? activeColor : '#94a3b8'} 
           strokeWidth="4" 
         />
-        <circle cx="240" cy="70" r="6" fill={outVal ? activeColor : '#94a3b8'} />
-        <text x="210" y="62" fontSize="12" fill="#64748b" fontWeight="bold">Out={outVal}</text>
+        <circle cx="260" cy="70" r="6" fill={outVal ? activeColor : '#94a3b8'} />
+        <text x="230" y="62" fontSize="12" fill="#64748b" fontWeight="bold">Out={outVal}</text>
       </svg>
     </div>
   );
@@ -180,9 +187,9 @@ export function LogicGatesLabPage() {
                 </button>
               </label>
             )}
-            <div className="output-box">
-              <span>{t.output}</span>
-              <strong>{currentOutput}</strong>
+            <div className="output-box" style={{ background: '#0f172a', color: '#93c5fd', borderRadius: '12px', padding: '16px 24px', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '4px', minWidth: '120px', boxShadow: '0 4px 12px rgba(15,23,42,0.15)' }}>
+              <span style={{ fontSize: '0.85rem', color: '#93c5fd' }}>{t.output}</span>
+              <strong style={{ color: '#ffffff', fontSize: '1.5rem' }}>{currentOutput}</strong>
             </div>
           </div>
           <p className="formula">
