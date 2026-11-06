@@ -97,6 +97,14 @@ export const translations = {
       ['transistor', '電晶體', 'Transistor', '可放大訊號或作為開關的電子元件，是處理器與記憶體的基本單位。'],
       ['photolithography', '微影技術', 'Photolithography', '利用光罩和光線，把精細電路圖案轉印到晶圓上的製程。'],
       ['logic-gate', '邏輯閘', 'Logic Gate', '依照布林邏輯運算輸入，產生 0 或 1 輸出的數位電路。'],
+      ['doping', '摻雜', 'Doping', '在純矽中加入微量特定雜質（如硼、磷），以改變其導電特性的過程。'],
+      ['etching', '蝕刻', 'Etching', '使用化學或物理方法移除晶圓上未受保護的薄膜，以形成電路圖案。'],
+      ['diode', '二極體', 'Diode', '只允許電流單向流通的半導體元件，常用於整流與訊號處理。'],
+      ['integrated-circuit', '積體電路', 'Integrated Circuit (IC)', '將大量電晶體與電路元件微小化並製作在單一矽晶片上的電路系統。'],
+      ['cleanroom', '無塵室', 'Cleanroom', '高度控制懸浮微粒、溫度與濕度的超乾淨廠房，以防晶圓受到汙染。'],
+      ['packaging', '封裝', 'Packaging', '將切割好的晶粒連接外部接腳並包裹保護外殼，以便安裝在電路板上。'],
+      ['cmos', '互補式金屬氧化物半導體', 'CMOS', '現代積體電路中最常用的技術，由互補的PMOS與NMOS電晶體組成，耗電量極低。'],
+      ['nanometer', '奈米', 'Nanometer (nm)', '十億分之一公尺，半導體製程中用來衡量電晶體閘極尺寸與精細度的單位。'],
     ]
   },
   en: {
@@ -195,6 +203,14 @@ export const translations = {
       ['transistor', 'Transistor', 'Transistor', 'Electronic components that can amplify signals or act as switches, the fundamental unit of processors and memory.'],
       ['photolithography', 'Photolithography', 'Photolithography', 'A process using masks and light to print intricate circuit patterns onto a wafer.'],
       ['logic-gate', 'Logic Gate', 'Logic Gate', 'Digital circuits that compute inputs according to Boolean logic to produce 0 or 1 outputs.'],
+      ['doping', 'Doping', 'Doping', 'The process of introducing trace impurities (such as boron or phosphorus) into pure silicon to alter its electrical conductivity.'],
+      ['etching', 'Etching', 'Etching', 'Using chemical or physical methods to remove unprotected thin films on a wafer to form circuit patterns.'],
+      ['diode', 'Diode', 'Diode', 'A semiconductor component that allows current to flow in only one direction, commonly used for rectification and signal processing.'],
+      ['integrated-circuit', 'Integrated Circuit', 'Integrated Circuit (IC)', 'A circuit system containing a vast number of miniaturized transistors and components fabricated on a single silicon chip.'],
+      ['cleanroom', 'Cleanroom', 'Cleanroom', 'An ultra-clean facility with tightly controlled airborne particles, temperature, and humidity to prevent wafer contamination.'],
+      ['packaging', 'Packaging', 'Packaging', 'Connecting diced chip dies to external pins and enclosing them in a protective casing for mounting on circuit boards.'],
+      ['cmos', 'CMOS', 'CMOS', 'The most widely used technology in modern integrated circuits, consisting of complementary PMOS and NMOS transistors with low power consumption.'],
+      ['nanometer', 'Nanometer', 'Nanometer (nm)', 'One billionth of a meter, a unit used in semiconductor manufacturing to measure transistor gate size and precision.'],
     ]
   }
 };
