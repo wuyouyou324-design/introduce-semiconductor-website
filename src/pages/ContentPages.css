@@ -317,3 +317,323 @@
     color: #f9fafb;
   }
 }
+
+/* Logic lab workspace polish */
+.lab-panel {
+  max-width: 960px;
+  padding: clamp(22px, 4vw, 40px);
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.1);
+}
+
+.lab-mode-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  padding: 6px;
+  margin: -4px 0 28px;
+  border: 1px solid #dbeafe;
+  border-radius: 16px;
+  background: #eff6ff;
+}
+
+.lab-mode-tabs button {
+  min-height: 48px;
+  border: 0;
+  border-radius: 11px;
+  color: #475569;
+  background: transparent;
+  font-size: 0.98rem;
+}
+
+.lab-mode-tabs button:hover {
+  color: #1d4ed8;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.lab-mode-tabs button.selected {
+  background: #fff !important;
+  color: #1d4ed8 !important;
+  box-shadow: 0 5px 14px rgba(37, 99, 235, 0.14);
+}
+
+.lab-panel > .gate-tabs:not(.lab-mode-tabs) {
+  gap: 9px;
+  margin-bottom: 22px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.lab-panel > .gate-tabs:not(.lab-mode-tabs) button {
+  min-width: 76px;
+  border-radius: 999px;
+  padding: 9px 15px;
+  font-family: ui-monospace, Consolas, monospace;
+  letter-spacing: 0.04em;
+}
+
+.gate-info-banner {
+  position: relative;
+  margin: 0 0 22px;
+  padding: 18px 20px 18px 24px;
+  overflow: hidden;
+  border: 1px solid #bfdbfe;
+  border-radius: 14px;
+  background: linear-gradient(110deg, #eff6ff, #f8fafc 70%);
+}
+
+.gate-info-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(#2563eb, #06b6d4);
+}
+
+.gate-info-banner h3 {
+  margin: 0 0 6px;
+  color: #0f172a;
+  font-size: 1.08rem;
+  line-height: 1.35;
+}
+
+.gate-info-banner p {
+  margin: 0;
+  color: #526277;
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+.gate-svg-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 24px 0;
+  padding: clamp(14px, 3vw, 24px);
+  overflow: hidden;
+  border: 1px solid #dbeafe;
+  border-radius: 18px;
+  background-color: #f8fbff;
+  background-image: linear-gradient(rgba(37, 99, 235, 0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(37, 99, 235, 0.055) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.gate-svg-container::after {
+  content: 'LIVE SIGNAL PATH';
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  color: #93c5fd;
+  font: 700 0.62rem ui-monospace, Consolas, monospace;
+  letter-spacing: 0.12em;
+}
+
+.gate-svg-container svg {
+  display: block;
+  width: min(100%, 560px);
+  height: auto;
+  overflow: visible;
+  border: 0 !important;
+  border-radius: 10px !important;
+  background: rgba(255, 255, 255, 0.78) !important;
+}
+
+.circuit-svg-container svg {
+  width: min(100%, 680px);
+}
+
+.lab-controls {
+  margin: 24px 0 18px;
+  padding: 16px;
+  gap: 14px;
+  border: 1px solid #dbeafe;
+  border-radius: 16px;
+  background: #f8fbff;
+}
+
+.lab-controls label {
+  align-items: center;
+  min-width: 78px;
+  gap: 7px;
+  color: #475569;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.switch {
+  position: relative;
+  width: 64px;
+  height: 44px;
+  border: 2px solid #cbd5e1;
+  border-radius: 12px;
+  background: #e2e8f0;
+  color: #64748b;
+  box-shadow: inset 0 2px 5px rgba(15, 23, 42, 0.08);
+}
+
+.switch::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(15, 23, 42, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.switch.on {
+  border-color: #0891b2;
+  background: #06b6d4;
+  color: #fff;
+  box-shadow: 0 5px 14px rgba(6, 182, 212, 0.25);
+}
+
+.switch.on::after {
+  transform: translateX(20px);
+}
+
+.output-box {
+  min-width: 120px;
+  padding: 12px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border: 1px solid #1e3a8a;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #0f172a, #172554);
+  color: #bae6fd;
+  text-align: center;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.18);
+}
+
+.output-box span {
+  color: #7dd3fc;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.output-box strong {
+  color: #fff;
+  font: 700 1.6rem ui-monospace, Consolas, monospace;
+}
+
+.circuit-output-box strong {
+  font-size: 1.18rem;
+}
+
+.formula {
+  margin: 18px 0 26px;
+  border: 1px solid #dbeafe;
+  background: #f8fbff;
+  color: #1e3a8a;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+}
+
+.truth-table {
+  margin-top: 28px;
+  border: 1px solid #dbeafe;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.truth-table caption {
+  padding-bottom: 14px;
+  color: #1e3a8a;
+  text-align: left;
+}
+
+.truth-table th {
+  background: #eff6ff;
+  color: #1e3a8a;
+}
+
+.truth-table td {
+  transition: background 0.15s ease;
+}
+
+.truth-table tbody tr:hover td {
+  background: #f0f9ff;
+}
+
+@media (max-width: 640px) {
+  .lab-panel {
+    padding: 18px 14px;
+    border-radius: 18px;
+  }
+
+  .lab-mode-tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-panel > .gate-tabs:not(.lab-mode-tabs) button {
+    flex: 1 1 calc(33.333% - 8px);
+    min-width: 0;
+    padding-inline: 8px;
+  }
+
+  .gate-svg-container {
+    margin-inline: -4px;
+    padding: 28px 8px 14px;
+  }
+
+  .lab-controls {
+    justify-content: center;
+  }
+
+  .output-box {
+    flex: 1 1 100%;
+  }
+
+  .truth-table th,
+  .truth-table td {
+    padding: 10px 7px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .lab-panel {
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+  }
+
+  .lab-mode-tabs,
+  .lab-controls,
+  .gate-svg-container,
+  .formula {
+    border-color: #334155;
+    background-color: #172033;
+  }
+
+  .lab-mode-tabs button.selected,
+  .gate-svg-container svg {
+    background: #1f2937 !important;
+  }
+
+  .gate-info-banner {
+    border-color: #1e40af;
+    background: linear-gradient(110deg, #172554, #1e293b 70%);
+  }
+
+  .gate-info-banner h3,
+  .truth-table caption,
+  .formula {
+    color: #dbeafe;
+  }
+
+  .gate-info-banner p {
+    color: #bfdbfe;
+  }
+
+  .truth-table caption,
+  .truth-table th {
+    color: #dbeafe;
+  }
+
+  .truth-table tbody tr:hover td {
+    background: #263449;
+  }
+}

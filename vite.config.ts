@@ -6,6 +6,10 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: '/introduce-semiconductor-website/',
   plugins: [react()],
+  server: {
+    host: '0.0.0.0',
+    allowedHosts: ['5173-i5mwwhh00b0bnmmk4hgem-41f2f65b.sg2.manus.computer'],
+  },
   test: {
     environment: 'jsdom',
     globals: true,

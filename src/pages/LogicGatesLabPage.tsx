@@ -95,8 +95,8 @@ function GateSvg({ gate, a, b, outVal }: { gate: Gate; a: number; b: number; out
   else if (gate === 'OR' || gate === 'XOR') outX1 = 140;
 
   return (
-    <div className="gate-svg-container" style={{ display: 'flex', justifyContent: 'center', margin: '20px 0' }}>
-      <svg width="280" height="140" viewBox="0 0 280 140" style={{ background: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+    <div className="gate-svg-container">
+      <svg width="280" height="140" viewBox="0 0 280 140">
         <line x1="20" y1={isUnary ? "70" : "45"} x2="70" y2={isUnary ? "70" : "45"} stroke={a ? activeColor : '#94a3b8'} strokeWidth="4" />
         <circle cx="20" cy={isUnary ? "70" : "45"} r="6" fill={a ? activeColor : '#94a3b8'} />
         <text x="30" y={isUnary ? "62" : "37"} fontSize="12" fill="#64748b" fontWeight="bold">A={a}</text>
@@ -160,32 +160,39 @@ function CircuitSvg({ circuitType, a, b }: { circuitType: CircuitType; a: number
     const sum = a ^ b;
     const carry = a & b;
     return (
-      <div style={{ display: 'flex', justifyContent: 'center', margin: '20px 0' }}>
-        <svg width="340" height="160" viewBox="0 0 340 160" style={{ background: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
-          <line x1="20" y1="50" x2="80" y2="50" stroke={a ? activeColor : inactiveColor} strokeWidth="3" />
-          <circle cx="20" cy="50" r="5" fill={a ? activeColor : inactiveColor} />
-          <text x="25" y="42" fontSize="11" fill="#64748b" fontWeight="bold">A={a}</text>
+      <div className="gate-svg-container circuit-svg-container half-adder-svg-container">
+        <svg width="440" height="230" viewBox="0 0 440 230">
+          <text x="18" y="20" fontSize="10" fill="#94a3b8" fontWeight="bold" letterSpacing="1.5">INPUT SPLIT</text>
+          <text x="315" y="20" fontSize="10" fill="#94a3b8" fontWeight="bold" letterSpacing="1.5">OUTPUTS</text>
 
-          <line x1="20" y1="110" x2="80" y2="110" stroke={b ? activeColor : inactiveColor} strokeWidth="3" />
-          <circle cx="20" cy="110" r="5" fill={b ? activeColor : inactiveColor} />
-          <text x="25" y="102" fontSize="11" fill="#64748b" fontWeight="bold">B={b}</text>
+          <line x1="24" y1="55" x2="130" y2="55" stroke={a ? activeColor : inactiveColor} strokeWidth="3" />
+          <circle cx="24" cy="55" r="5" fill={a ? activeColor : inactiveColor} />
+          <text x="30" y="47" fontSize="11" fill="#64748b" fontWeight="bold">A={a}</text>
+          <line x1="70" y1="55" x2="70" y2="155" stroke={a ? activeColor : inactiveColor} strokeWidth="3" />
+          <line x1="70" y1="155" x2="130" y2="155" stroke={a ? activeColor : inactiveColor} strokeWidth="3" />
+          <circle cx="70" cy="55" r="4" fill={a ? activeColor : inactiveColor} />
 
-          <line x1="80" y1="50" x2="120" y2="50" stroke={a ? activeColor : inactiveColor} strokeWidth="3" />
-          <line x1="80" y1="110" x2="120" y2="110" stroke={b ? activeColor : inactiveColor} strokeWidth="3" />
+          <line x1="24" y1="95" x2="110" y2="95" stroke={b ? activeColor : inactiveColor} strokeWidth="3" />
+          <circle cx="24" cy="95" r="5" fill={b ? activeColor : inactiveColor} />
+          <text x="30" y="87" fontSize="11" fill="#64748b" fontWeight="bold">B={b}</text>
+          <line x1="110" y1="95" x2="110" y2="195" stroke={b ? activeColor : inactiveColor} strokeWidth="3" />
+          <line x1="110" y1="195" x2="130" y2="195" stroke={b ? activeColor : inactiveColor} strokeWidth="3" />
+          <circle cx="110" cy="95" r="4" fill={b ? activeColor : inactiveColor} />
 
-          <rect x="120" y="30" width="70" height="40" rx="8" fill="#ffffff" stroke="#2563eb" strokeWidth="3" />
-          <text x="135" y="55" fontSize="13" fill="#2563eb" fontWeight="bold">XOR (Sum)</text>
+          <path d="M 130 25 Q 158 25 205 55 Q 158 85 130 85 Q 144 55 130 25 Z" fill="#ffffff" stroke="#2563eb" strokeWidth="3" />
+          <path d="M 118 25 Q 132 55 118 85" fill="none" stroke="#2563eb" strokeWidth="2.5" />
+          <text x="151" y="59" fontSize="13" fill="#2563eb" fontWeight="bold">XOR</text>
 
-          <rect x="120" y="90" width="70" height="40" rx="8" fill="#ffffff" stroke="#2563eb" strokeWidth="3" />
-          <text x="132" y="115" fontSize="13" fill="#2563eb" fontWeight="bold">AND (Carry)</text>
+          <path d="M 130 130 L 165 130 A 45 45 0 0 1 165 220 L 130 220 Z" fill="#ffffff" stroke="#2563eb" strokeWidth="3" />
+          <text x="143" y="181" fontSize="13" fill="#2563eb" fontWeight="bold">AND</text>
 
-          <line x1="190" y1="50" x2="280" y2="50" stroke={sum ? activeColor : inactiveColor} strokeWidth="3" />
-          <circle cx="280" cy="50" r="5" fill={sum ? activeColor : inactiveColor} />
-          <text x="290" y="42" fontSize="11" fill="#64748b" fontWeight="bold">Sum={sum}</text>
+          <line x1="205" y1="55" x2="320" y2="55" stroke={sum ? activeColor : inactiveColor} strokeWidth="3" />
+          <circle cx="320" cy="55" r="5" fill={sum ? activeColor : inactiveColor} />
+          <text x="332" y="47" fontSize="11" fill="#64748b" fontWeight="bold">Sum={sum}</text>
 
-          <line x1="190" y1="110" x2="280" y2="110" stroke={carry ? activeColor : inactiveColor} strokeWidth="3" />
-          <circle cx="280" cy="110" r="5" fill={carry ? activeColor : inactiveColor} />
-          <text x="290" y="102" fontSize="11" fill="#64748b" fontWeight="bold">Carry={carry}</text>
+          <line x1="210" y1="175" x2="320" y2="175" stroke={carry ? activeColor : inactiveColor} strokeWidth="3" />
+          <circle cx="320" cy="175" r="5" fill={carry ? activeColor : inactiveColor} />
+          <text x="332" y="167" fontSize="11" fill="#64748b" fontWeight="bold">Carry={carry}</text>
         </svg>
       </div>
     );
@@ -196,8 +203,8 @@ function CircuitSvg({ circuitType, a, b }: { circuitType: CircuitType; a: number
   const out = Number(!mid);
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', margin: '20px 0' }}>
-      <svg width="340" height="140" viewBox="0 0 340 140" style={{ background: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+    <div className="gate-svg-container circuit-svg-container">
+      <svg width="340" height="140" viewBox="0 0 340 140">
         <line x1="20" y1="45" x2="70" y2="45" stroke={a ? activeColor : inactiveColor} strokeWidth="3" />
         <circle cx="20" cy="45" r="5" fill={a ? activeColor : inactiveColor} />
         <text x="25" y="37" fontSize="11" fill="#64748b" fontWeight="bold">A={a}</text>
@@ -206,12 +213,16 @@ function CircuitSvg({ circuitType, a, b }: { circuitType: CircuitType; a: number
         <circle cx="20" cy="95" r="5" fill={b ? activeColor : inactiveColor} />
         <text x="25" y="87" fontSize="11" fill="#64748b" fontWeight="bold">B={b}</text>
 
-        <rect x="70" y="25" width="60" height="90" rx="8" fill="#ffffff" stroke="#2563eb" strokeWidth="3" />
-        <text x="82" y="74" fontSize="14" fill="#2563eb" fontWeight="bold">{gate1}</text>
+        {gate1 === 'AND' ? (
+          <path d="M 70 30 L 105 30 A 38 40 0 0 1 105 110 L 70 110 Z" fill="#ffffff" stroke="#2563eb" strokeWidth="3" />
+        ) : (
+          <path d="M 70 25 Q 98 25 145 70 Q 98 115 70 115 Q 84 70 70 25 Z" fill="#ffffff" stroke="#2563eb" strokeWidth="3" />
+        )}
+        <text x={gate1 === 'AND' ? '82' : '91'} y="76" fontSize="14" fill="#2563eb" fontWeight="bold">{gate1}</text>
 
-        <line x1="130" y1="70" x2="180" y2="70" stroke={mid ? activeColor : inactiveColor} strokeWidth="3" />
-        <circle cx="155" cy="70" r="4" fill={mid ? activeColor : inactiveColor} />
-        <text x="135" y="62" fontSize="10" fill="#64748b">Mid={mid}</text>
+        <line x1={gate1 === 'AND' ? '143' : '150'} y1="70" x2="180" y2="70" stroke={mid ? activeColor : inactiveColor} strokeWidth="3" />
+        <circle cx="165" cy="70" r="4" fill={mid ? activeColor : inactiveColor} />
+        <text x="145" y="62" fontSize="10" fill="#64748b">Mid={mid}</text>
 
         <polygon points="180,35 230,70 180,105" fill="#ffffff" stroke="#2563eb" strokeWidth="3" />
         <circle cx="236" cy="70" r="5" fill="#ffffff" stroke="#2563eb" strokeWidth="3" />
@@ -252,7 +263,7 @@ export function LogicGatesLabPage() {
       <div className="content-container">
         <section className="lab-panel">
           {/* Lab Mode Toggle */}
-          <div className="gate-tabs" role="tablist" style={{ marginBottom: '20px' }}>
+          <div className="gate-tabs lab-mode-tabs" role="tablist">
             <button 
               type="button" 
               role="tab" 
@@ -290,9 +301,9 @@ export function LogicGatesLabPage() {
                 ))}
               </div>
 
-              <div className="gate-info-banner" style={{ marginBottom: '16px', padding: '16px', background: '#f1f5f9', borderRadius: '8px', borderLeft: '4px solid #2563eb' }}>
-                <h3 style={{ margin: '0 0 6px', color: '#0f172a', fontSize: '1.1rem' }}>{info.name}</h3>
-                <p style={{ margin: 0, color: '#475569', fontSize: '0.95rem', lineHeight: '1.6' }}>{info.desc}</p>
+              <div className="gate-info-banner">
+                <h3>{info.name}</h3>
+                <p>{info.desc}</p>
               </div>
 
               <GateSvg gate={gate} a={a} b={b} outVal={currentOutput} />
@@ -322,9 +333,9 @@ export function LogicGatesLabPage() {
                     </button>
                   </label>
                 )}
-                <div className="output-box" style={{ background: '#0f172a', color: '#93c5fd', borderRadius: '12px', padding: '16px 24px', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '4px', minWidth: '120px', boxShadow: '0 4px 12px rgba(15,23,42,0.15)' }}>
-                  <span style={{ fontSize: '0.85rem', color: '#93c5fd' }}>{t.output}</span>
-                  <strong style={{ color: '#ffffff', fontSize: '1.5rem' }}>{currentOutput}</strong>
+                <div className="output-box">
+                  <span>{t.output}</span>
+                  <strong>{currentOutput}</strong>
                 </div>
               </div>
               <p className="formula">
@@ -367,9 +378,9 @@ export function LogicGatesLabPage() {
                 ))}
               </div>
 
-              <div className="gate-info-banner" style={{ marginBottom: '16px', padding: '16px', background: '#f1f5f9', borderRadius: '8px', borderLeft: '4px solid #2563eb' }}>
-                <h3 style={{ margin: '0 0 6px', color: '#0f172a', fontSize: '1.1rem' }}>{circInfo.name}</h3>
-                <p style={{ margin: 0, color: '#475569', fontSize: '0.95rem', lineHeight: '1.6' }}>{circInfo.desc}</p>
+              <div className="gate-info-banner">
+                <h3>{circInfo.name}</h3>
+                <p>{circInfo.desc}</p>
               </div>
 
               <CircuitSvg circuitType={circuitType} a={a} b={b} />
@@ -397,9 +408,9 @@ export function LogicGatesLabPage() {
                     {b}
                   </button>
                 </label>
-                <div className="output-box" style={{ background: '#0f172a', color: '#93c5fd', borderRadius: '12px', padding: '16px 24px', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '4px', minWidth: '120px', boxShadow: '0 4px 12px rgba(15,23,42,0.15)' }}>
-                  <span style={{ fontSize: '0.85rem', color: '#93c5fd' }}>{circuitType === 'half-adder' ? 'Sum / Carry' : t.output}</span>
-                  <strong style={{ color: '#ffffff', fontSize: '1.3rem' }}>
+                <div className="output-box circuit-output-box">
+                  <span>{circuitType === 'half-adder' ? 'Sum / Carry' : t.output}</span>
+                  <strong>
                     {circuitType === 'half-adder' ? `S=${a ^ b}, C=${a & b}` : circOut}
                   </strong>
                 </div>
