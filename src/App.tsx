@@ -1,5 +1,6 @@
 import { RouterProvider, useRouter } from './app/router';
 import { LanguageProvider } from './app/language';
+import { ThemeProvider } from './app/theme';
 import { PageLayout } from './components/layout/PageLayout';
 import { HomePage } from './pages/HomePage';
 import { LearnPage } from './pages/LearnPage';
@@ -34,9 +35,11 @@ function AppContent() {
 export function App() {
   return (
     <LanguageProvider>
-      <RouterProvider>
-        <AppContent />
-      </RouterProvider>
+      <ThemeProvider>
+        <RouterProvider>
+          <AppContent />
+        </RouterProvider>
+      </ThemeProvider>
     </LanguageProvider>
   );
 }

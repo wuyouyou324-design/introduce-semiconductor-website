@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { useRouter } from '../../app/router';
 import { useLanguage } from '../../app/language';
+import { useTheme } from '../../app/theme';
 import './Header.css';
 
 export function Header() {
   const { currentPath, navigate } = useRouter();
   const { language, setLanguage, t } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
@@ -51,6 +53,39 @@ export function Header() {
         </nav>
 
         <div className="header-actions" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <button 
+            type="button" 
+            className="theme-toggle-btn" 
+            onClick={toggleTheme}
+            style={{
+              padding: '6px 12px',
+              borderRadius: '6px',
+              border: '1px solid var(--border)',
+              background: 'var(--code-bg)',
+              color: 'var(--text-h)',
+              cursor: 'pointer',
+              fontWeight: 600,
+              fontSize: '14px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              transition: 'all 0.2s'
+            }}
+            aria-label={t.themeToggleLabel}
+          >
+            {theme === 'dark' ? (
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="5" />
+                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+              </svg>
+            ) : (
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              </svg>
+            )}
+            <span>{theme === 'dark' ? t.lightMode : t.darkMode}</span>
+          </button>
+
           <button 
             type="button" 
             className="lang-toggle-btn" 

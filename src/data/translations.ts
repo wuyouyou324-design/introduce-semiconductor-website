@@ -27,6 +27,9 @@ export const translations = {
     aboutProject: '關於專案',
     aboutDesc: '本站為純前端科普教育網站，不包含任何商業營利、登入系統或後端資料庫。',
     copyright: '© 2026 半導體啟蒙基地. All rights reserved.',
+    darkMode: '深色模式',
+    lightMode: '淺色模式',
+    themeToggleLabel: '切換深淺模式',
     
     // Learn Page
     learnEyebrow: '學習路徑 · 基礎核心',
@@ -137,6 +140,9 @@ export const translations = {
     aboutProject: 'About Project',
     aboutDesc: 'This site is a pure front-end science education website, containing no commercial profit, login systems, or backend databases.',
     copyright: '© 2026 Semiconductor Ignition Base. All rights reserved.',
+    darkMode: 'Dark Mode',
+    lightMode: 'Light Mode',
+    themeToggleLabel: 'Toggle Theme',
     
     // Learn Page
     learnEyebrow: 'Learning Path · Core Basics',
