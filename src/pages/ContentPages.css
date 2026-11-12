@@ -1,7 +1,7 @@
 .content-page {
-  background: #f8fafc;
+  background: var(--page-bg);
   min-height: 100%;
-  color: #1e293b;
+  color: var(--text-main);
 }
 
 .content-hero {
@@ -52,11 +52,12 @@
 .lab-panel,
 .process-panel,
 .explain-panel {
-  background: #fff;
-  border: 1px solid #e2e8f0;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   border-radius: 16px;
   padding: 28px;
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+  box-shadow: var(--shadow);
+  color: var(--text-main);
 }
 
 .lesson-number {
@@ -72,7 +73,7 @@
   font-size: 1.35rem;
   line-height: 1.4;
   margin: 12px 0 8px;
-  color: #0f172a;
+  color: var(--text-heading);
 }
 
 .lesson-card p,
@@ -80,7 +81,7 @@
 .explain-panel p,
 .process-detail p {
   line-height: 1.8;
-  color: #64748b;
+  color: var(--text-muted);
   margin: 0;
 }
 
@@ -143,9 +144,9 @@
 
 .gate-tabs button,
 .process-list button {
-  border: 1px solid #cbd5e1;
-  background: #fff;
-  color: #475569;
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-muted);
   border-radius: 8px;
   padding: 10px 16px;
   font-weight: 600;
@@ -174,9 +175,10 @@
   justify-content: space-between;
   margin: 24px 0;
   padding: 20px;
-  background: #f8fafc;
+  background: var(--section-alt-bg);
   border-radius: 12px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
 }
 
 .lab-controls label {
@@ -184,7 +186,7 @@
   flex-direction: column;
   gap: 8px;
   font-weight: 600;
-  color: #334155;
+  color: var(--text-muted);
   font-size: 0.95rem;
 }
 
@@ -212,12 +214,13 @@
   font-family: ui-monospace, Consolas, monospace;
   font-size: 1.2rem;
   font-weight: 700;
-  color: #1e293b;
+  color: var(--text-heading);
   text-align: center;
-  background: #f1f5f9;
+  background: var(--section-alt-bg);
   padding: 16px;
   border-radius: 10px;
   margin: 20px 0;
+  border: 1px solid var(--border-color);
 }
 
 .truth-table {
@@ -228,95 +231,35 @@
   font-size: 0.95rem;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
 }
 
 .truth-table caption {
   font-weight: 700;
   margin-bottom: 12px;
-  color: #0f172a;
+  color: var(--text-heading);
   font-size: 1.1rem;
 }
 
 .truth-table th,
 .truth-table td {
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-color);
   padding: 12px 16px;
 }
 
 .truth-table th {
-  background: #f8fafc;
-  color: #334155;
+  background: var(--section-alt-bg);
+  color: var(--text-heading);
   font-weight: 700;
 }
 
 .truth-table td {
-  background: #fff;
-  color: #475569;
+  background: var(--card-bg);
+  color: var(--text-muted);
 }
 
-@media (prefers-color-scheme: dark) {
-  .content-page {
-    background: #111827;
-    color: #e5e7eb;
-  }
-  .lesson-card,
-  .term-card,
-  .lab-panel,
-  .process-panel,
-  .explain-panel,
-  .search-box,
-  .empty-state {
-    background: #1f2937;
-    border-color: #374151;
-  }
-  .lesson-card h2,
-  .term-card h2,
-  .explain-panel h2,
-  .process-detail h2,
-  .output-box strong {
-    color: #f9fafb;
-  }
-  .lesson-card p,
-  .term-card p,
-  .explain-panel p,
-  .process-detail p {
-    color: #cbd5e1;
-  }
-  .gate-tabs button,
-  .process-list button {
-    background: #1f2937;
-    color: #d1d5db;
-    border-color: #4b5563;
-  }
-  .truth-table th {
-    background: #374151;
-    color: #f9fafb;
-  }
-  .truth-table td {
-    background: #1f2937;
-    color: #d1d5db;
-  }
-  .truth-table th,
-  .truth-table td {
-    border-color: #4b5563;
-  }
-  .search-box input {
-    background: transparent;
-    color: #f9fafb;
-  }
-  .lab-controls {
-    background: #1f2937;
-    border-color: #374151;
-  }
-  .lab-controls label {
-    color: #e5e7eb;
-  }
-  .formula {
-    background: #111827;
-    color: #f9fafb;
-  }
-}
+
 
 /* Logic lab workspace polish */
 .lab-panel {
@@ -595,45 +538,4 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .lab-panel {
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
-  }
 
-  .lab-mode-tabs,
-  .lab-controls,
-  .gate-svg-container,
-  .formula {
-    border-color: #334155;
-    background-color: #172033;
-  }
-
-  .lab-mode-tabs button.selected,
-  .gate-svg-container svg {
-    background: #1f2937 !important;
-  }
-
-  .gate-info-banner {
-    border-color: #1e40af;
-    background: linear-gradient(110deg, #172554, #1e293b 70%);
-  }
-
-  .gate-info-banner h3,
-  .truth-table caption,
-  .formula {
-    color: #dbeafe;
-  }
-
-  .gate-info-banner p {
-    color: #bfdbfe;
-  }
-
-  .truth-table caption,
-  .truth-table th {
-    color: #dbeafe;
-  }
-
-  .truth-table tbody tr:hover td {
-    background: #263449;
-  }
-}
