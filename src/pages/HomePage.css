@@ -4,8 +4,8 @@
 
 /* Hero Section */
 .hero-section {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  color: #ffffff;
+  background: var(--hero-bg);
+  color: var(--hero-text);
   padding: 80px 24px;
   position: relative;
   overflow: hidden;
@@ -44,7 +44,7 @@
   line-height: 1.2;
   letter-spacing: -1px;
   margin: 0;
-  color: #ffffff;
+  color: var(--hero-text);
 }
 
 .hero-title .highlight {
@@ -57,7 +57,7 @@
 .hero-description {
   font-size: 18px;
   line-height: 1.6;
-  color: #94a3b8;
+  color: var(--hero-muted);
   margin: 0;
   max-width: 540px;
 }
@@ -69,8 +69,8 @@
 }
 
 .btn-primary {
-  background-color: #2563eb;
-  color: #ffffff;
+  background-color: var(--brand-blue);
+  color: var(--hero-text);
   border: none;
   padding: 14px 28px;
   border-radius: 8px;
@@ -98,6 +98,7 @@
   cursor: pointer;
   transition: all 0.2s ease;
   font-family: inherit;
+  color: var(--hero-text);
 }
 
 .btn-secondary:hover {
@@ -327,8 +328,8 @@
 
 /* CTA Banner */
 .cta-banner-section {
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-  color: #ffffff;
+  background: var(--hero-bg);
+  color: var(--hero-text);
   padding: 64px 24px;
   text-align: center;
   font-size: 28px;

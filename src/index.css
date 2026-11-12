@@ -21,6 +21,28 @@
   --tag-bg: #e2e8f0;
   --tag-text: #475569;
 
+  --brand-blue: #2563eb;
+  --header-bg: #0f172a;
+  --header-border: #1e293b;
+  --header-muted: #94a3b8;
+  --footer-bg: #0b1120;
+  --hero-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  --hero-text: #ffffff;
+  --hero-muted: #94a3b8;
+  --dark-surface: #0f172a;
+  --dark-surface-alt: #1e293b;
+  --dark-border: #334155;
+  --dark-text: #ffffff;
+  --dark-muted: #dbeafe;
+  --soft-blue-bg: #eff6ff;
+  --soft-blue-surface: #f8fbff;
+  --soft-blue-border: #dbeafe;
+  --soft-blue-heading: #1e3a8a;
+  --soft-blue-text: #526277;
+  --control-bg: #e2e8f0;
+  --control-border: #cbd5e1;
+  --control-text: #64748b;
+
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
@@ -63,6 +85,24 @@
     --border-color: #334155;
     --tag-bg: #334155;
     --tag-text: #cbd5e1;
+
+    --header-bg: #020617;
+    --header-border: #1e293b;
+    --footer-bg: #020617;
+    --hero-bg: linear-gradient(135deg, #020617 0%, #172554 100%);
+    --hero-muted: #bfdbfe;
+    --dark-surface: #020617;
+    --dark-surface-alt: #1e293b;
+    --dark-border: #475569;
+    --dark-muted: #dbeafe;
+    --soft-blue-bg: #172554;
+    --soft-blue-surface: #0f172a;
+    --soft-blue-border: #1e40af;
+    --soft-blue-heading: #bfdbfe;
+    --soft-blue-text: #cbd5e1;
+    --control-bg: #334155;
+    --control-border: #475569;
+    --control-text: #cbd5e1;
   }
 
   :root:not([data-theme="light"]) #social .button-icon {
@@ -92,15 +132,45 @@
   --border-color: #334155;
   --tag-bg: #334155;
   --tag-text: #cbd5e1;
+
+  --header-bg: #020617;
+  --header-border: #1e293b;
+  --footer-bg: #020617;
+  --hero-bg: linear-gradient(135deg, #020617 0%, #172554 100%);
+  --hero-muted: #bfdbfe;
+  --dark-surface: #020617;
+  --dark-surface-alt: #1e293b;
+  --dark-border: #475569;
+  --dark-muted: #dbeafe;
+  --soft-blue-bg: #172554;
+  --soft-blue-surface: #0f172a;
+  --soft-blue-border: #1e40af;
+  --soft-blue-heading: #bfdbfe;
+  --soft-blue-text: #cbd5e1;
+  --control-bg: #334155;
+  --control-border: #475569;
+  --control-text: #cbd5e1;
 }
 
 [data-theme="dark"] #social .button-icon {
   filter: invert(1) brightness(2);
 }
 
+html,
+body,
 #root {
-  width: 1126px;
-  max-width: 100%;
+  width: 100%;
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+}
+
+html,
+body {
+  background: var(--page-bg);
+}
+
+#root {
   margin: 0 auto;
   text-align: center;
   min-height: 100svh;
@@ -110,9 +180,7 @@
 }
 
 body {
-  margin: 0;
-  min-width: 320px;
-  background: var(--bg);
+  overflow-x: hidden;
 }
 
 button,

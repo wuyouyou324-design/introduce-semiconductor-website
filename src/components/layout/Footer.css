@@ -1,7 +1,7 @@
 .site-footer {
-  background-color: #0b1120;
-  color: #94a3b8;
-  border-top: 1px solid #1e293b;
+  background-color: var(--footer-bg);
+  color: var(--header-muted);
+  border-top: 1px solid var(--header-border);
   padding: 48px 0 32px;
   margin-top: auto;
 }
@@ -16,7 +16,7 @@
 }
 
 .footer-brand h3 {
-  color: #ffffff;
+  color: var(--hero-text);
   font-size: 18px;
   font-weight: 700;
   margin: 0 0 12px 0;
@@ -31,7 +31,7 @@
 
 .footer-links h4,
 .footer-info h4 {
-  color: #ffffff;
+  color: var(--hero-text);
   font-size: 16px;
   font-weight: 600;
   margin: 0 0 16px 0;
@@ -49,7 +49,7 @@
 .footer-links button {
   background: transparent;
   border: none;
-  color: #94a3b8;
+  color: var(--header-muted);
   font-size: 14px;
   cursor: pointer;
   padding: 0;
@@ -64,7 +64,7 @@
 
 .copyright {
   font-size: 13px;
-  color: #64748b;
+  color: var(--header-muted);
   margin-top: 24px !important;
 }
 

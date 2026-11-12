@@ -6,10 +6,10 @@ interface ManufacturingVisualizerProps {
 export function ManufacturingVisualizer({ stepIndex, language }: ManufacturingVisualizerProps) {
   return (
     <div className="mfg-visualizer" style={{
-      background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
+      background: 'var(--hero-bg)',
       borderRadius: '16px',
       padding: '32px',
-      color: '#fff',
+      color: 'var(--hero-text)',
       boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
       marginTop: '24px',
       display: 'flex',
