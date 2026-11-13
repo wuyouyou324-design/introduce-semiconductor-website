@@ -11,18 +11,9 @@ import {
 } from './manufacturing/ManufacturingStepVisuals';
 
 interface ManufacturingVisualizerProps {
-  stepIndex: number;
+  stepId: ManufacturingStepId;
   language: Language;
 }
-
-const stepIds: ManufacturingStepId[] = [
-  'purification',
-  'slicing',
-  'deposition',
-  'photolithography',
-  'implantation',
-  'packaging',
-];
 
 const stepVisuals: Record<ManufacturingStepId, () => ReactNode> = {
   purification: PurificationVisual,
@@ -33,10 +24,19 @@ const stepVisuals: Record<ManufacturingStepId, () => ReactNode> = {
   packaging: PackagingVisual,
 };
 
-export function ManufacturingVisualizer({ stepIndex, language }: ManufacturingVisualizerProps) {
+const stepNumberMap: Record<ManufacturingStepId, string> = {
+  purification: '01',
+  slicing: '02',
+  deposition: '03',
+  photolithography: '04',
+  implantation: '05',
+  packaging: '06',
+};
+
+export function ManufacturingVisualizer({ stepId, language }: ManufacturingVisualizerProps) {
   const t = translations[language];
-  const stepId = stepIds[stepIndex] ?? stepIds[0];
-  const StepVisual = stepVisuals[stepId];
+  const StepVisual = stepVisuals[stepId] || stepVisuals.purification;
+  const stepNum = stepNumberMap[stepId] || '01';
 
   return (
     <div className="mfg-visualizer">
@@ -45,7 +45,7 @@ export function ManufacturingVisualizer({ stepIndex, language }: ManufacturingVi
         <StepVisual />
       </div>
       <div className="mfg-visualizer__status">
-        {t.currentStage} 0{stepIndex + 1}
+        {t.currentStage} {stepNum}
       </div>
     </div>
   );

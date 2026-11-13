@@ -1,4 +1,5 @@
-import { RouterProvider, useRouter } from './app/router';
+import { RouterProvider } from './app/router';
+import { useRouter } from './app/useRouter';
 import { LanguageProvider } from './app/language';
 import { ThemeProvider } from './app/theme';
 import { PageLayout } from './components/layout/PageLayout';

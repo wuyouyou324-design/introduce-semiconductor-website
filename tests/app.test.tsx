@@ -1,8 +1,13 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import App from '../src/App';
 
-describe('Introduce Semiconductor Website M1', () => {
+beforeEach(() => {
+  window.scrollTo = vi.fn();
+  window.history.pushState({}, '', '/');
+});
+
+describe('Introduce Semiconductor Website Comprehensive Tests', () => {
   it('renders homepage correctly with hero and learning paths', () => {
     render(<App />);
     expect(screen.getAllByText('半導體啟蒙基地')[0]).toBeDefined();
@@ -40,7 +45,7 @@ describe('Introduce Semiconductor Website M1', () => {
     expect(screen.getByRole('heading', { name: '邏輯閘實驗室' })).toBeDefined();
   });
 
-  it('navigates to manufacturing page and switches process steps with visualizer', () => {
+  it('navigates to manufacturing page and switches process steps with visualizer using step IDs', () => {
     render(<App />);
     const mfgButtons = screen.getAllByText('晶片製造');
     fireEvent.click(mfgButtons[0]);
@@ -58,5 +63,40 @@ describe('Introduce Semiconductor Website M1', () => {
     const glossaryButtons = screen.getAllByText('詞彙表');
     fireEvent.click(glossaryButtons[0]);
     expect(screen.getByRole('heading', { name: '半導體詞彙表' })).toBeDefined();
+  });
+
+  it('switches language between Chinese and English', () => {
+    render(<App />);
+    const langToggleBtn = screen.getByRole('button', { name: /切換語言 \/ Switch Language/i });
+    fireEvent.click(langToggleBtn);
+    expect(screen.getAllByText('Semiconductor Ignition Base')[0]).toBeDefined();
+    fireEvent.click(langToggleBtn);
+    expect(screen.getAllByText('半導體啟蒙基地')[0]).toBeDefined();
+  });
+
+  it('toggles theme between light and dark', () => {
+    render(<App />);
+    const themeBtn = screen.getByRole('button', { name: /切換深淺模式|Toggle Theme/i });
+    fireEvent.click(themeBtn);
+    expect(document.documentElement.getAttribute('data-theme')).toBe('dark');
+    fireEvent.click(themeBtn);
+    expect(document.documentElement.getAttribute('data-theme')).toBe('light');
+  });
+
+  it('renders 404 Not Found page for unknown routes', () => {
+    window.history.pushState({}, '', '/unknown-route-test');
+    render(<App />);
+    expect(screen.getByText(/404 - 找不到頁面|Page Not Found/i)).toBeDefined();
+  });
+
+  it('interacts with logic gates lab truth table and input toggles', () => {
+    render(<App />);
+    const labButtons = screen.getAllByText('邏輯閘實驗室');
+    fireEvent.click(labButtons[0]);
+    expect(screen.getByRole('heading', { name: '邏輯閘實驗室' })).toBeDefined();
+
+    expect(screen.getByText(/真值表/)).toBeDefined();
+    const inputAButton = screen.getByRole('button', { name: /輸入 A/i });
+    fireEvent.click(inputAButton);
   });
 });

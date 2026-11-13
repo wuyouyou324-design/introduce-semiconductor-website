@@ -1,8 +1,18 @@
 import { useState } from 'react';
-import { useRouter } from '../app/router';
-import { useLanguage } from '../app/language';
+import { useRouter } from '../app/useRouter';
+import { useLanguage } from '../app/useLanguage';
 import { ManufacturingVisualizer } from '../components/ManufacturingVisualizer';
+import type { ManufacturingStepId } from '../components/manufacturing/ManufacturingStepVisuals';
 import './ContentPages.css';
+
+const stepIds: ManufacturingStepId[] = [
+  'purification',
+  'slicing',
+  'deposition',
+  'photolithography',
+  'implantation',
+  'packaging',
+];
 
 export function ManufacturingPage() {
   const { navigate } = useRouter();
@@ -10,6 +20,7 @@ export function ManufacturingPage() {
   const [active, setActive] = useState(0);
   const steps = t.manufacturingSteps;
   const step = steps[active] || steps[0];
+  const currentStepId = stepIds[active] || 'purification';
 
   return (
     <div className="content-page">
@@ -39,7 +50,7 @@ export function ManufacturingPage() {
             <span className="lesson-number">{step[0]}</span>
             <h2>{step[1]}</h2>
             <p>{step[2]}</p>
-            <ManufacturingVisualizer stepIndex={active} language={language} />
+            <ManufacturingVisualizer stepId={currentStepId} language={language} />
           </div>
         </section>
         <button type="button" className="back-link process-back-link" onClick={() => navigate('/')}>

@@ -1,5 +1,5 @@
-import { useRouter } from '../app/router';
-import { useLanguage } from '../app/language';
+import { useRouter } from '../app/useRouter';
+import { useLanguage } from '../app/useLanguage';
 import { getArticleById } from '../data/learnArticles';
 import type { ReactNode } from 'react';
 import './ContentPages.css';

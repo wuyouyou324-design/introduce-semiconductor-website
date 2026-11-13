@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { useRouter } from '../../app/router';
-import { useLanguage } from '../../app/language';
-import { useTheme } from '../../app/theme';
+import { useRouter } from '../../app/useRouter';
+import { useLanguage } from '../../app/useLanguage';
+import { useTheme } from '../../app/useTheme';
 import './Header.css';
 
 export function Header() {

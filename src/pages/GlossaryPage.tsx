@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
-import { useRouter } from '../app/router';
-import { useLanguage } from '../app/language';
+import { useRouter } from '../app/useRouter';
+import { useLanguage } from '../app/useLanguage';
 import './ContentPages.css';
 
 export function GlossaryPage() { 

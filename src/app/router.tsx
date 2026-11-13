@@ -1,16 +1,7 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import { getArticleById } from '../data/learnArticles';
-
-interface RouterContextType {
-  currentPath: string;
-  navigate: (path: string) => void;
-}
-
-const RouterContext = createContext<RouterContextType>({
-  currentPath: '/',
-  navigate: () => {},
-});
+import { RouterContext } from './useRouter';
 
 const pageTitles: Record<string, string> = {
   '/': '半導體啟蒙基地｜半導體科普學習網站',
@@ -88,8 +79,4 @@ export function RouterProvider({ children }: { children: ReactNode }) {
 
   const value = useMemo(() => ({ currentPath, navigate }), [currentPath]);
   return <RouterContext.Provider value={value}>{children}</RouterContext.Provider>;
-}
-
-export function useRouter() {
-  return useContext(RouterContext);
 }
