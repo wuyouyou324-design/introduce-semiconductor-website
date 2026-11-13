@@ -52,25 +52,11 @@ export function Header() {
           </ul>
         </nav>
 
-        <div className="header-actions" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <button 
-            type="button" 
-            className="theme-toggle-btn" 
+        <div className="header-actions">
+          <button
+            type="button"
+            className="theme-toggle-btn"
             onClick={toggleTheme}
-            style={{
-              padding: '6px 12px',
-              borderRadius: '6px',
-              border: '1px solid var(--border)',
-              background: 'var(--code-bg)',
-              color: 'var(--text-h)',
-              cursor: 'pointer',
-              fontWeight: 600,
-              fontSize: '14px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              transition: 'all 0.2s'
-            }}
             aria-label={t.themeToggleLabel}
           >
             {theme === 'dark' ? (
@@ -86,21 +72,10 @@ export function Header() {
             <span>{theme === 'dark' ? t.lightMode : t.darkMode}</span>
           </button>
 
-          <button 
-            type="button" 
-            className="lang-toggle-btn" 
+          <button
+            type="button"
             onClick={toggleLanguage}
-            style={{
-              padding: '6px 12px',
-              borderRadius: '6px',
-              border: '1px solid #3b82f6',
-              background: language === 'en' ? '#3b82f6' : 'transparent',
-              color: language === 'en' ? '#fff' : '#3b82f6',
-              cursor: 'pointer',
-              fontWeight: 600,
-              fontSize: '14px',
-              transition: 'all 0.2s'
-            }}
+            className={`lang-toggle-btn ${language === 'en' ? 'active' : ''}`}
             aria-label="切換語言 / Switch Language"
           >
             {language === 'zh' ? 'English' : '中文'}

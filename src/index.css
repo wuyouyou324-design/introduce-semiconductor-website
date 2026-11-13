@@ -10,6 +10,9 @@
   --social-bg: rgba(244, 243, 236, 0.5);
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --shadow-card: 0 4px 6px -1px rgb(15 23 42 / 5%);
+  --shadow-panel: 0 24px 60px rgb(15 23 42 / 10%);
+  --focus-ring: #38bdf8;
 
   --page-bg: #f8fafc;
   --card-bg: #ffffff;
@@ -42,6 +45,33 @@
   --control-bg: #e2e8f0;
   --control-border: #cbd5e1;
   --control-text: #64748b;
+
+  --mfg-brand: #3b82f6;
+  --mfg-blue: #60a5fa;
+  --mfg-blue-light: #93c5fd;
+  --mfg-blue-pale: #bfdbfe;
+  --mfg-blue-deep: #1d4ed8;
+  --mfg-cyan: #38bdf8;
+  --mfg-amber: #f59e0b;
+  --mfg-red: #dc2626;
+  --mfg-pink: #ec4899;
+  --mfg-rose: #f43f5e;
+  --mfg-yellow: #facc15;
+  --mfg-gold: #fbbf24;
+  --mfg-success: #22c55e;
+  --mfg-slate: #334155;
+  --mfg-slate-mid: #475569;
+  --mfg-slate-light: #64748b;
+  --mfg-muted: #94a3b8;
+  --mfg-border-light: #cbd5e1;
+  --mfg-dark: #0f172a;
+  --mfg-dark-surface: #1e293b;
+  --mfg-white: #ffffff;
+  --logic-gate-stroke: #2563eb;
+  --logic-gate-active: #22c55e;
+  --logic-gate-inactive: #94a3b8;
+  --logic-gate-fill: #ffffff;
+  --logic-gate-label: #64748b;
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;

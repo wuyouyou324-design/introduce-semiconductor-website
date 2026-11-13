@@ -25,9 +25,9 @@ export function LearnArticlePage({ articleId }: LearnArticlePageProps) {
   if (!article) {
     return (
       <div className="content-page">
-        <div className="content-container" style={{ textAlign: 'center', padding: '4rem 0' }}>
+        <div className="content-container not-found-content">
           <h2>{t.articleNotFound}</h2>
-          <button type="button" className="back-link" onClick={() => navigate('/learn')} style={{ marginTop: '2rem' }}>
+          <button type="button" className="back-link" onClick={() => navigate('/learn')}>
             {t.backToLearningList}
           </button>
         </div>
@@ -45,9 +45,9 @@ export function LearnArticlePage({ articleId }: LearnArticlePageProps) {
           <p>{content.summary}</p>
         </section>
       <div className="content-container">
-        <article className="article-body" style={{ background: 'var(--card-bg, #ffffff)', padding: '2.5rem', borderRadius: '1rem', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)', marginBottom: '2.5rem' }}>
+        <article className="article-body">
           {content.paragraphs.map((p, idx) => (
-            <p key={idx} style={{ marginBottom: '1.5rem', lineHeight: '1.8', fontSize: '1.05rem', color: 'var(--text-color, #334155)' }}>
+            <p key={idx} className="article-body__paragraph">
               {renderInlineMarkdown(p)}
             </p>
           ))}
@@ -61,7 +61,7 @@ export function LearnArticlePage({ articleId }: LearnArticlePageProps) {
           </div>
         </section>
 
-        <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem', flexWrap: 'wrap' }}>
+        <div className="article-actions">
           <button type="button" className="back-link" onClick={() => navigate('/learn')}>
             {t.backToLearningList}
           </button>

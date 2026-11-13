@@ -159,6 +159,36 @@
   gap: 12px;
 }
 
+.theme-toggle-btn,
+.lang-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.theme-toggle-btn {
+  border: 1px solid var(--border);
+  background: var(--code-bg);
+  color: var(--text-h);
+}
+
+.lang-toggle-btn {
+  border: 1px solid var(--brand-blue);
+  background: transparent;
+  color: var(--brand-blue);
+}
+
+.lang-toggle-btn.active {
+  background: var(--brand-blue);
+  color: var(--mfg-white);
+}
+
 @media (max-width: 768px) {
   .desktop-nav {
     display: none;

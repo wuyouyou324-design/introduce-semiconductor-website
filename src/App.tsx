@@ -10,23 +10,23 @@ import { ManufacturingPage } from './pages/ManufacturingPage';
 import { GlossaryPage } from './pages/GlossaryPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 
+const staticRoutes = [
+  { path: '/', render: () => <HomePage /> },
+  { path: '/learn', render: () => <LearnPage /> },
+  { path: '/lab/logic-gates', render: () => <LogicGatesLabPage /> },
+  { path: '/manufacturing', render: () => <ManufacturingPage /> },
+  { path: '/glossary', render: () => <GlossaryPage /> },
+];
+
 function AppContent() {
   const { currentPath } = useRouter();
 
-  let page = <NotFoundPage />;
-  if (currentPath === '/') {
-    page = <HomePage />;
-  } else if (currentPath === '/learn') {
-    page = <LearnPage />;
-  } else if (currentPath.startsWith('/learn/')) {
+  const staticRoute = staticRoutes.find((route) => route.path === currentPath);
+  let page = staticRoute ? staticRoute.render() : <NotFoundPage />;
+
+  if (!staticRoute && currentPath.startsWith('/learn/')) {
     const articleId = currentPath.replace('/learn/', '');
     page = <LearnArticlePage articleId={articleId} />;
-  } else if (currentPath === '/lab/logic-gates') {
-    page = <LogicGatesLabPage />;
-  } else if (currentPath === '/manufacturing') {
-    page = <ManufacturingPage />;
-  } else if (currentPath === '/glossary') {
-    page = <GlossaryPage />;
   }
 
   return <PageLayout>{page}</PageLayout>;

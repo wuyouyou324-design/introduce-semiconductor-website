@@ -24,12 +24,11 @@ export function LearnPage() {
                 className="lesson-card lesson-card-btn"
                 key={article.id}
                 onClick={() => navigate(`/learn/${article.id}`)}
-                style={{ textAlign: 'left', cursor: 'pointer', background: 'inherit', border: '1px solid var(--border-color, #e2e8f0)', width: '100%', font: 'inherit' }}
               >
                 <span className="lesson-number">{article.number}</span>
                 <h2>{content.title}</h2>
                 <p>{content.summary}</p>
-                <span className="path-action" style={{ marginTop: '1rem', display: 'inline-block', color: '#2563eb', fontWeight: 500 }}>
+                <span className="path-action lesson-card__action">
                   {t.readArticle} <span aria-hidden="true">→</span>
                 </span>
               </button>
