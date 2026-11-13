@@ -373,7 +373,7 @@ export function LogicGatesLabPage() {
                     className={circuitType === item ? 'selected' : ''} 
                     onClick={() => setCircuitType(item)}
                   >
-                    {item === 'half-adder' ? (language === 'zh' ? '半加器 (Half-Adder)' : 'Half-Adder') : item}
+                    {item === 'half-adder' ? t.halfAdderLabel : item}
                   </button>
                 ))}
               </div>
@@ -409,7 +409,7 @@ export function LogicGatesLabPage() {
                   </button>
                 </label>
                 <div className="output-box circuit-output-box">
-                  <span>{circuitType === 'half-adder' ? 'Sum / Carry' : t.output}</span>
+                  <span>{circuitType === 'half-adder' ? t.sumCarry : t.output}</span>
                   <strong>
                     {circuitType === 'half-adder' ? `S=${a ^ b}, C=${a & b}` : circOut}
                   </strong>
@@ -425,8 +425,8 @@ export function LogicGatesLabPage() {
                   <tr>
                     <th>{t.inputA}</th>
                     <th>{t.inputB}</th>
-                    <th>{circuitType === 'half-adder' ? 'Sum (和)' : 'Mid (中間值)'}</th>
-                    <th>{circuitType === 'half-adder' ? 'Carry (進位)' : t.output}</th>
+                    <th>{circuitType === 'half-adder' ? t.sum : t.middleValue}</th>
+                    <th>{circuitType === 'half-adder' ? t.carry : t.output}</th>
                   </tr>
                 </thead>
                 <tbody>

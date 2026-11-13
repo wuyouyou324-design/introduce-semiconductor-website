@@ -1,9 +1,13 @@
+import { translations } from '../data/translations';
+
 interface ManufacturingVisualizerProps {
   stepIndex: number;
   language: 'zh' | 'en';
 }
 
 export function ManufacturingVisualizer({ stepIndex, language }: ManufacturingVisualizerProps) {
+  const t = translations[language];
+
   return (
     <div className="mfg-visualizer" style={{
       background: 'var(--hero-bg)',
@@ -30,7 +34,7 @@ export function ManufacturingVisualizer({ stepIndex, language }: ManufacturingVi
         color: '#38bdf8',
         fontWeight: 700
       }}>
-        {language === 'zh' ? '製程視覺化動態模擬' : 'Process Interactive Simulation'}
+        {t.processSimulation}
       </div>
 
       <div style={{ width: '100%', maxWidth: '420px', height: '180px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '16px' }}>
@@ -180,7 +184,7 @@ export function ManufacturingVisualizer({ stepIndex, language }: ManufacturingVi
       </div>
 
       <div style={{ marginTop: '16px', fontSize: '0.95rem', color: '#94a3b8', textAlign: 'center' }}>
-        {language === 'zh' ? `當前製程階段：Step 0${stepIndex + 1}` : `Current Stage: Step 0${stepIndex + 1}`}
+        {t.currentStage} 0{stepIndex + 1}
       </div>
     </div>
   );

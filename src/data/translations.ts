@@ -30,6 +30,10 @@ export const translations = {
     darkMode: '深色模式',
     lightMode: '淺色模式',
     themeToggleLabel: '切換深淺模式',
+    readArticle: '閱讀文章',
+    articleNotFound: '找不到文章',
+    backToLearningList: '← 返回學習列表',
+    coreConceptAnalysis: '核心概念解析',
     
     // Learn Page
     learnEyebrow: '學習路徑 · 基礎核心',
@@ -52,12 +56,19 @@ export const translations = {
     singleGateLab: '單一邏輯閘',
     circuitBuilderLab: '串接電路與半加器',
     selectCircuit: '選擇電路模式',
+    halfAdderLabel: '半加器 (Half-Adder)',
+    sumCarry: 'Sum / Carry',
+    sum: 'Sum (和)',
+    carry: 'Carry (進位)',
+    middleValue: 'Mid (中間值)',
 
     // Manufacturing Page
     mfgEyebrow: '製程探索 · 從砂到晶片',
     mfgTitle: '晶片製造工藝',
     mfgDesc: '一片晶圓需要經過數百道精密步驟，以下用六個階段掌握全貌。',
     mfgTabList: '製造流程步驟',
+    processSimulation: '製程視覺化動態模擬',
+    currentStage: '當前製程階段：Step',
 
     // Glossary Page
     glossaryEyebrow: '知識工具 · 快速查找',
@@ -72,23 +83,15 @@ export const translations = {
     notFoundDesc: '很抱歉，您造訪的頁面不存在或已被移除。',
     returnHome: '返回首頁',
 
-    // Data items
-    lessons: [
-      ['01', '導體、絕緣體與半導體', '導體容易讓電子通過，絕緣體則阻擋電子；半導體的導電能力介於兩者之間，還能透過溫度與摻雜精準調整。'],
-      ['02', '矽晶體與共價鍵', '矽原子有四個價電子，會與鄰近原子形成穩定的共價鍵，這個晶體結構是製作晶片的材料基礎。'],
-      ['03', 'P 型與 N 型半導體', '在矽中加入不同雜質，可以創造電洞或自由電子，分別形成 P 型與 N 型半導體。'],
-      ['04', 'PN 接面與二極體', 'P 型和 N 型接合後形成耗盡區，電流較容易朝一個方向通過，這就是二極體的基本原理。'],
-      ['05', 'MOSFET：數位世界的微型開關', '利用電場效應控制通道開關，數十億顆 MOSFET 支撐了整個電腦、手機與 AI 時代。'],
-    ],
     learningPaths: [
-      { title: '半導體基礎', description: '從原子結構出發，認識導體、絕緣體與半導體的差別，探索矽的奧秘與電晶體原理。', tag: '基礎核心' },
-      { title: '邏輯閘實驗室', description: '探索 AND、OR、NOT 邏輯閘如何組成電腦的大腦，體驗布林邏輯的魅力。', tag: '互動體驗' },
-      { title: '晶片製造工藝', description: '見證石英砂如何變成精密的晶圓，了解微影、蝕刻、離子植入與封裝測試。', tag: '製程探索' },
+      { id: 'basics', title: '半導體基礎', description: '從原子結構出發，認識導體、絕緣體與半導體的差別，探索矽的奧秘與電晶體原理。', tag: '基礎核心' },
+      { id: 'logicGates', title: '邏輯閘實驗室', description: '探索 AND、OR、NOT 邏輯閘如何組成電腦的大腦，體驗布林邏輯的魅力。', tag: '互動體驗' },
+      { id: 'manufacturing', title: '晶片製造工藝', description: '見證石英砂如何變成精密的晶圓，了解微影、蝕刻、離子植入與封裝測試。', tag: '製程探索' },
     ],
     featuredTopicsList: [
-      { title: '什麼是半導體？', category: '基礎概念', readTime: '3 分鐘閱讀', summary: '為什麼有些材料導電、有些不導電？半導體憑什麼成為現代電子產品的基石？' },
-      { title: '矽晶圓是怎麼煉成的？', category: '材料科學', readTime: '4 分鐘閱讀', summary: '從石英砂到高純度單晶矽，看看晶圓製造如何把材料變成電子世界的基礎。' },
-      { title: '電晶體：改變世界的開關', category: '核心元件', readTime: '5 分鐘閱讀', summary: '一顆微小的電晶體如何以高速開關控制電流，支撐整個數位時代？' },
+      { id: 'semiconductor', title: '什麼是半導體？', category: '基礎概念', readTime: '3 分鐘閱讀', summary: '為什麼有些材料導電、有些不導電？半導體憑什麼成為現代電子產品的基石？' },
+      { id: 'wafer', title: '矽晶圓是怎麼煉成的？', category: '材料科學', readTime: '4 分鐘閱讀', summary: '從石英砂到高純度單晶矽，看看晶圓製造如何把材料變成電子世界的基礎。' },
+      { id: 'transistor', title: '電晶體：改變世界的開關', category: '核心元件', readTime: '5 分鐘閱讀', summary: '一顆微小的電晶體如何以高速開關控制電流，支撐整個數位時代？' },
     ],
     manufacturingSteps: [
       ['01', '純化與長晶', '把石英砂中的矽純化，再用柴氏拉晶法拉出高純度單晶矽柱。'],
@@ -143,6 +146,10 @@ export const translations = {
     darkMode: 'Dark Mode',
     lightMode: 'Light Mode',
     themeToggleLabel: 'Toggle Theme',
+    readArticle: 'Read Article',
+    articleNotFound: 'Article Not Found',
+    backToLearningList: '← Back to Learning List',
+    coreConceptAnalysis: 'Core Concept Analysis',
     
     // Learn Page
     learnEyebrow: 'Learning Path · Core Basics',
@@ -165,12 +172,19 @@ export const translations = {
     singleGateLab: 'Single Gate',
     circuitBuilderLab: 'Cascaded & Half-Adder',
     selectCircuit: 'Select Circuit Mode',
+    halfAdderLabel: 'Half-Adder',
+    sumCarry: 'Sum / Carry',
+    sum: 'Sum',
+    carry: 'Carry',
+    middleValue: 'Mid',
 
     // Manufacturing Page
     mfgEyebrow: 'Process Exploration · From Sand to Chip',
     mfgTitle: 'Chip Manufacturing Process',
     mfgDesc: 'A silicon wafer goes through hundreds of precise steps. Here are six stages to grasp the full picture.',
     mfgTabList: 'Manufacturing Steps',
+    processSimulation: 'Process Interactive Simulation',
+    currentStage: 'Current Stage: Step',
 
     // Glossary Page
     glossaryEyebrow: 'Knowledge Tool · Quick Lookup',
@@ -185,23 +199,15 @@ export const translations = {
     notFoundDesc: 'Sorry, the page you visited does not exist or has been removed.',
     returnHome: 'Return to Home',
 
-    // Data items
-    lessons: [
-      ['01', 'Conductors, Insulators, and Semiconductors', 'Conductors easily let electrons pass, while insulators block them; semiconductor conductivity is between both and can be precisely adjusted via temperature and doping.'],
-      ['02', 'Silicon Crystals and Covalent Bonds', 'Silicon atoms have four valence electrons, forming stable covalent bonds with neighboring atoms. This crystal structure is the material foundation of chips.'],
-      ['03', 'P-type and N-type Semiconductors', 'Adding different impurities into silicon creates electron holes or free electrons, forming P-type and N-type semiconductors respectively.'],
-      ['04', 'PN Junction and Diode', 'Combining P-type and N-type creates a depletion region where current flows more easily in one direction. This is the basic principle of a diode.'],
-      ['05', 'MOSFET: The Microscopic Switch', 'Using electric fields to control channel switching, billions of MOSFETs support the entire computer, phone, and AI era.'],
-    ],
     learningPaths: [
-      { title: 'Semiconductor Basics', description: 'Starting from atomic structure, understand the differences between conductors, insulators, and semiconductors, exploring silicon mysteries and transistor principles.', tag: 'Core Basics' },
-      { title: 'Logic Gates Lab', description: 'Explore how AND, OR, NOT logic gates compose the brain of a computer and experience the charm of Boolean logic.', tag: 'Interactive' },
-      { title: 'Chip Manufacturing', description: 'Witness how quartz sand turns into precise wafers, understanding photolithography, etching, ion implantation, and packaging testing.', tag: 'Process' },
+      { id: 'basics', title: 'Semiconductor Basics', description: 'Starting from atomic structure, understand the differences between conductors, insulators, and semiconductors, exploring silicon mysteries and transistor principles.', tag: 'Core Basics' },
+      { id: 'logicGates', title: 'Logic Gates Lab', description: 'Explore how AND, OR, NOT logic gates compose the brain of a computer and experience the charm of Boolean logic.', tag: 'Interactive' },
+      { id: 'manufacturing', title: 'Chip Manufacturing', description: 'Witness how quartz sand turns into precise wafers, understanding photolithography, etching, ion implantation, and packaging testing.', tag: 'Process' },
     ],
     featuredTopicsList: [
-      { title: 'What is a Semiconductor?', category: 'Core Concepts', readTime: '3 min read', summary: 'Why do some materials conduct electricity while others do not? Why are semiconductors the cornerstone of modern electronics?' },
-      { title: 'How are Silicon Wafers Made?', category: 'Material Science', readTime: '4 min read', summary: 'From quartz sand to high-purity monocrystalline silicon, see how wafer manufacturing turns materials into the basis of the digital world.' },
-      { title: 'Transistor: The Switch That Changed the World', category: 'Core Component', readTime: '5 min read', summary: 'How does a tiny transistor control current with high-speed switching to support the entire digital age?' },
+      { id: 'semiconductor', title: 'What is a Semiconductor?', category: 'Core Concepts', readTime: '3 min read', summary: 'Why do some materials conduct electricity while others do not? Why are semiconductors the cornerstone of modern electronics?' },
+      { id: 'wafer', title: 'How are Silicon Wafers Made?', category: 'Material Science', readTime: '4 min read', summary: 'From quartz sand to high-purity monocrystalline silicon, see how wafer manufacturing turns materials into the basis of the digital world.' },
+      { id: 'transistor', title: 'Transistor: The Switch That Changed the World', category: 'Core Component', readTime: '5 min read', summary: 'How does a tiny transistor control current with high-speed switching to support the entire digital age?' },
     ],
     manufacturingSteps: [
       ['01', 'Purification and Crystal Growth', 'Purifying silicon from quartz sand, then pulling high-purity single-crystal silicon ingots using the Czochralski method.'],

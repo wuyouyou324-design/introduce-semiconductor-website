@@ -34,16 +34,32 @@ function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+function scrollToHash(hash: string) {
+  if (!hash) {
+    scrollToTop();
+    return;
+  }
+
+  requestAnimationFrame(() => {
+    const id = decodeURIComponent(hash.slice(1));
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  });
+}
+
 export function RouterProvider({ children }: { children: ReactNode }) {
   const [currentPath, setCurrentPath] = useState<string>(getPath);
 
   useEffect(() => {
     const handlePopState = () => {
       setCurrentPath(getPath());
-      scrollToTop();
+      scrollToHash(window.location.hash);
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  useEffect(() => {
+    scrollToHash(window.location.hash);
   }, []);
 
   useEffect(() => {
@@ -67,7 +83,7 @@ export function RouterProvider({ children }: { children: ReactNode }) {
     if (nextUrl === currentUrl) return;
     window.history.pushState({}, '', nextUrl);
     setCurrentPath(appPath);
-    scrollToTop();
+    scrollToHash(url.hash);
   };
 
   const value = useMemo(() => ({ currentPath, navigate }), [currentPath]);

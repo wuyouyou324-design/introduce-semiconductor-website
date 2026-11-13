@@ -30,7 +30,7 @@ export function LearnPage() {
                 <h2>{content.title}</h2>
                 <p>{content.summary}</p>
                 <span className="path-action" style={{ marginTop: '1rem', display: 'inline-block', color: '#2563eb', fontWeight: 500 }}>
-                  {language === 'zh' ? '閱讀文章' : 'Read Article'} <span aria-hidden="true">→</span>
+                  {t.readArticle} <span aria-hidden="true">→</span>
                 </span>
               </button>
             );

@@ -2,23 +2,30 @@ import { useRouter } from '../app/router';
 import { useLanguage } from '../app/language';
 import './HomePage.css';
 
-const learningPathIcons = ['◈', '⊕', '✣'];
-const learningPathPaths = ['/learn', '/lab/logic-gates', '/manufacturing'];
-const featuredTopicPaths = ['/glossary#semiconductor', '/manufacturing#wafer', '/learn#transistor'];
+const learningPathConfig: Record<string, { icon: string; path: string }> = {
+  basics: { icon: '◈', path: '/learn' },
+  logicGates: { icon: '⊕', path: '/lab/logic-gates' },
+  manufacturing: { icon: '✣', path: '/manufacturing' },
+};
+
+const featuredTopicConfig: Record<string, string> = {
+  semiconductor: '/glossary#semiconductor',
+  wafer: '/manufacturing#wafer',
+  transistor: '/learn#transistor',
+};
 
 export function HomePage() {
   const { navigate } = useRouter();
   const { t } = useLanguage();
 
-  const learningPaths = t.learningPaths.map((item, idx) => ({
+  const learningPaths = t.learningPaths.map((item) => ({
     ...item,
-    icon: learningPathIcons[idx],
-    path: learningPathPaths[idx],
+    ...learningPathConfig[item.id],
   }));
 
-  const featuredTopics = t.featuredTopicsList.map((topic, idx) => ({
+  const featuredTopics = t.featuredTopicsList.map((topic) => ({
     ...topic,
-    path: featuredTopicPaths[idx],
+    path: featuredTopicConfig[topic.id],
   }));
 
   return (
