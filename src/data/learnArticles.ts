@@ -59,7 +59,7 @@ export const learnArticles: LessonArticle[] = [
         '然而，正是這種完美且安定的晶體結構，提供了無與倫比的機械強度與絕緣基底。在後續製程中，工程師可以在這個完美的基底上進行微影與摻雜，精準雕刻出無數奈米級的電子迴路。'
       ],
       conceptTitle: '晶格結構與化學安定性',
-      conceptDesc: '完美的金剛石晶格確保了電子傳輸時受到的晶格散射極少；同時，矽表面自然生成的二氧化矽（SiO2）薄膜是極佳的絕緣絕緣層，成就了平面製程技術。'
+      conceptDesc: '完美的金剛石晶格確保了電子傳輸時受到的晶格散射極少；同時，矽表面自然生成的二氧化矽（SiO2）薄膜是極佳的絕緣層，成就了平面製程技術。'
     },
     en: {
       title: 'Silicon Crystals and Covalent Bonds',

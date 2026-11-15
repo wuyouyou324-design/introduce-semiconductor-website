@@ -74,7 +74,7 @@ export const translations = {
     // Glossary Page
     glossaryEyebrow: '知識工具 · 快速查找',
     glossaryTitle: '半導體詞彙表',
-    glossaryDesc: '搜尋常見名詞，建立閱讀晶片與製程內容時需要的基礎 vocabulary。',
+    glossaryDesc: '搜尋常見名詞，建立閱讀晶片與製程內容時需要的基礎詞彙。',
     searchPlaceholder: '搜尋中文、英文或解釋',
     searchLabel: '搜尋詞彙',
     emptyGlossary: '找不到相關詞彙，試試其他關鍵字。',
@@ -137,7 +137,7 @@ export const translations = {
     corePathsSub: 'Step by step, understanding the semiconductor world from scratch',
     learnMore: 'Learn More',
     featuredTopics: 'Featured Topics',
-    featuredTopicsSub: 'Starting from daily curiosity, find clear and easy answers',
+    featuredTopicsSub: 'Start with everyday questions and discover clear, practical answers.',
     readTopic: 'Read Topic',
     readyPrompt: 'Ready to start your semiconductor exploration journey?',
     startLearningNow: 'Start Learning Now',
