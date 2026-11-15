@@ -125,8 +125,71 @@
 .lesson-grid,
 .term-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
+}
+
+.lesson-card,
+.term-card {
+  min-width: 0;
+}
+
+.search-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 10px 16px;
+  margin-top: 24px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: var(--shadow-card);
+  color: var(--text-muted);
+}
+
+.search-box input {
+  border: none;
+  background: transparent;
+  color: var(--text-main);
+  font: inherit;
+  width: 100%;
+  outline: none;
+}
+
+.process-list {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.process-list button {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.truth-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 24px;
+  border-radius: 14px;
+  border: 1px solid var(--soft-blue-border);
+}
+
+.truth-table-wrapper .truth-table {
+  margin-top: 0;
+  border: none;
 }
 
 .lesson-card,
@@ -648,6 +711,31 @@
   .truth-table th,
   .truth-table td {
     padding: 10px 7px;
+  }
+}
+
+@media (max-width: 768px) {
+  .explain-panel {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    gap: 20px;
+  }
+  .binary-display {
+    min-width: 0;
+    width: 100%;
+  }
+  .lesson-grid,
+  .term-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .process-list {
+    flex-direction: column;
+  }
+  .process-list button {
+    width: 100%;
+    justify-content: flex-start;
+    white-space: normal;
   }
 }
 

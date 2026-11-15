@@ -186,6 +186,12 @@
   filter: invert(1) brightness(2);
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html,
 body,
 #root {

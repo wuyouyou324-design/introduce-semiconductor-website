@@ -69,7 +69,7 @@ export function Header() {
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
               </svg>
             )}
-            <span>{theme === 'dark' ? t.lightMode : t.darkMode}</span>
+            <span className="theme-btn-text">{theme === 'dark' ? t.lightMode : t.darkMode}</span>
           </button>
 
           <button

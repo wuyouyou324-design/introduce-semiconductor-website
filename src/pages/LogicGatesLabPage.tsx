@@ -324,25 +324,27 @@ export function LogicGatesLabPage() {
               <p className="formula">
                 {unary ? `NOT ${a} = ${currentOutput}` : `${a} ${gate} ${b} = ${currentOutput}`}
               </p>
-              <table className="truth-table">
-                <caption>{gate} {t.truthTable}</caption>
-                <thead>
-                  <tr>
-                    <th>{t.inputA}</th>
-                    {!unary && <th>{t.inputB}</th>}
-                    <th>{t.output}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {rows.map(([x, y]) => (
-                    <tr key={`${x}-${y}`}>
-                      <td>{x}</td>
-                      {!unary && <td>{y}</td>}
-                      <td>{output(gate, x, y)}</td>
+              <div className="truth-table-wrapper">
+                <table className="truth-table">
+                  <caption>{gate} {t.truthTable}</caption>
+                  <thead>
+                    <tr>
+                      <th>{t.inputA}</th>
+                      {!unary && <th>{t.inputB}</th>}
+                      <th>{t.output}</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {rows.map(([x, y]) => (
+                      <tr key={`${x}-${y}`}>
+                        <td>{x}</td>
+                        {!unary && <td>{y}</td>}
+                        <td>{output(gate, x, y)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </>
           ) : (
             <>
@@ -402,33 +404,35 @@ export function LogicGatesLabPage() {
                 {circInfo.formula}
               </p>
 
-              <table className="truth-table">
-                <caption>{circInfo.name} {t.truthTable}</caption>
-                <thead>
-                  <tr>
-                    <th>{t.inputA}</th>
-                    <th>{t.inputB}</th>
-                    <th>{circuitType === 'half-adder' ? t.sum : t.middleValue}</th>
-                    <th>{circuitType === 'half-adder' ? t.carry : t.output}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {rows.map(([x, y]) => {
-                    const m = circuitType === 'AND-NOT' ? (x & y) : (x | y);
-                    const o = circuitType === 'half-adder' ? 0 : Number(!m);
-                    const sum = x ^ y;
-                    const carry = x & y;
-                    return (
-                      <tr key={`${x}-${y}`}>
-                        <td>{x}</td>
-                        <td>{y}</td>
-                        <td>{circuitType === 'half-adder' ? sum : m}</td>
-                        <td>{circuitType === 'half-adder' ? carry : o}</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
+              <div className="truth-table-wrapper">
+                <table className="truth-table">
+                  <caption>{circInfo.name} {t.truthTable}</caption>
+                  <thead>
+                    <tr>
+                      <th>{t.inputA}</th>
+                      <th>{t.inputB}</th>
+                      <th>{circuitType === 'half-adder' ? t.sum : t.middleValue}</th>
+                      <th>{circuitType === 'half-adder' ? t.carry : t.output}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {rows.map(([x, y]) => {
+                      const m = circuitType === 'AND-NOT' ? (x & y) : (x | y);
+                      const o = circuitType === 'half-adder' ? 0 : Number(!m);
+                      const sum = x ^ y;
+                      const carry = x & y;
+                      return (
+                        <tr key={`${x}-${y}`}>
+                          <td>{x}</td>
+                          <td>{y}</td>
+                          <td>{circuitType === 'half-adder' ? sum : m}</td>
+                          <td>{circuitType === 'half-adder' ? carry : o}</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
             </>
           )}
         </section>
