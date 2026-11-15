@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from '../../app/useRouter';
 import { useLanguage } from '../../app/useLanguage';
 import { useTheme } from '../../app/useTheme';
@@ -17,6 +17,19 @@ export function Header() {
     { path: '/manufacturing', label: t.navMfg },
     { path: '/glossary', label: t.navGlossary },
   ];
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [mobileMenuOpen]);
 
   const handleNavClick = (path: string) => {
     navigate(path);
