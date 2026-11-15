@@ -4,6 +4,7 @@ export const translations = {
   zh: {
     brandName: '半導體啟蒙基地',
     brandSubtitle: '為國高中生打造的互動式半導體科普教育平台，探索晶片奧秘與未來科技。',
+    siteDescription: '半導體啟蒙基地：用清楚的圖解與互動內容，認識半導體、邏輯閘與晶片製造。',
     navHome: '首頁',
     navLearn: '學習路徑',
     navLab: '邏輯閘實驗室',
@@ -120,6 +121,7 @@ export const translations = {
   en: {
     brandName: 'Semiconductor Ignition Base',
     brandSubtitle: 'An interactive semiconductor science education platform for middle and high school students to explore chip mysteries and future technology.',
+    siteDescription: 'Semiconductor Ignition Base uses clear diagrams and interactive lessons to explain semiconductors, logic gates, and chip manufacturing.',
     navHome: 'Home',
     navLearn: 'Learning Path',
     navLab: 'Logic Gates Lab',
