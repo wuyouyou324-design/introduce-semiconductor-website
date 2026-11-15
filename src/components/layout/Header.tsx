@@ -23,6 +23,9 @@ export function Header() {
     setMobileMenuOpen(false);
   };
 
+  const isNavItemActive = (path: string) =>
+    currentPath === path || (path !== '/' && currentPath.startsWith(`${path}/`));
+
   const toggleLanguage = () => {
     setLanguage(language === 'zh' ? 'en' : 'zh');
   };
@@ -44,7 +47,7 @@ export function Header() {
           <ul>
             {navItems.map((item) => (
               <li key={item.path}>
-                <button type="button" className={`nav-link ${currentPath === item.path ? 'active' : ''}`} onClick={() => handleNavClick(item.path)} aria-current={currentPath === item.path ? 'page' : undefined}>
+                <button type="button" className={`nav-link ${isNavItemActive(item.path) ? 'active' : ''}`} onClick={() => handleNavClick(item.path)} aria-current={isNavItemActive(item.path) ? 'page' : undefined}>
                   {item.label}
                 </button>
               </li>
@@ -92,7 +95,7 @@ export function Header() {
           <ul>
             {navItems.map((item) => (
               <li key={item.path}>
-                <button type="button" className={`mobile-nav-link ${currentPath === item.path ? 'active' : ''}`} onClick={() => handleNavClick(item.path)} aria-current={currentPath === item.path ? 'page' : undefined}>
+                <button type="button" className={`mobile-nav-link ${isNavItemActive(item.path) ? 'active' : ''}`} onClick={() => handleNavClick(item.path)} aria-current={isNavItemActive(item.path) ? 'page' : undefined}>
                   {item.label}
                 </button>
               </li>
