@@ -16,6 +16,7 @@ export function Header() {
     { path: '/lab/logic-gates', label: t.navLab },
     { path: '/manufacturing', label: t.navMfg },
     { path: '/ecosystem', label: t.navEcosystem },
+    { path: '/timeline', label: t.navTimeline },
     { path: '/glossary', label: t.navGlossary },
   ];
 

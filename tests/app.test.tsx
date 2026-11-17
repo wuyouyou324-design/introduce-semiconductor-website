@@ -163,4 +163,17 @@ describe('Introduce Semiconductor Website Comprehensive Tests', () => {
     expect(screen.getAllByText(/Synopsys \(新思科技\)/)[0]).toBeDefined();
     expect(screen.getByText(/產業最上游/)).toBeDefined();
   });
+
+  it('navigates to moores law timeline page and switches milestones', () => {
+    render(<App />);
+    const timelineButtons = screen.getAllByText('摩爾定律時間軸');
+    fireEvent.click(timelineButtons[0]);
+    expect(screen.getByRole('heading', { name: '摩爾定律與半導體演進時間軸' })).toBeDefined();
+
+    // Click on 1971 node (use getAllByText and pick the timeline-year button)
+    const node1971 = screen.getAllByText('1971')[0];
+    fireEvent.click(node1971);
+    expect(screen.getByRole('heading', { name: /Intel 4004/ })).toBeDefined();
+    expect(screen.getAllByText('2,300 顆')[0]).toBeDefined();
+  });
 });

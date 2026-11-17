@@ -1738,3 +1738,249 @@
 .matrix-table tr.active-row {
   background: rgba(2, 132, 199, 0.08);
 }
+
+/* ==========================================================================
+   Timeline Page Styles
+   ========================================================================== */
+.timeline-slider-section {
+  margin-bottom: 2rem;
+  overflow-x: auto;
+  padding-bottom: 0.75rem;
+}
+
+.timeline-nodes-track {
+  display: flex;
+  gap: 0.5rem;
+  min-width: 780px;
+  position: relative;
+}
+
+.timeline-node-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.75rem 0.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.timeline-node-btn:hover {
+  border-color: var(--primary-color, #0284c7);
+  transform: translateY(-2px);
+}
+
+.timeline-node-btn.active {
+  background: var(--primary-color, #0284c7);
+  color: #fff;
+  border-color: var(--primary-color, #0284c7);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+}
+
+.timeline-year {
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin-bottom: 0.35rem;
+}
+
+.timeline-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border-color);
+  margin-bottom: 0.35rem;
+}
+
+.timeline-node-btn.active .timeline-dot {
+  background: #ffffff;
+}
+
+.timeline-short {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.timeline-node-btn.active .timeline-short {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.milestone-featured-card {
+  padding: 2.25rem;
+  border-radius: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 2.5rem;
+}
+
+.milestone-card-header {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
+  position: relative;
+}
+
+.milestone-year-huge {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--primary-color, #0284c7);
+  line-height: 1;
+  display: block;
+  margin: 0.5rem 0;
+  opacity: 0.9;
+}
+
+.milestone-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  background: rgba(2, 132, 199, 0.1);
+  color: var(--primary-color, #0284c7);
+}
+
+.milestone-card-header h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 1.25rem;
+}
+
+.milestone-specs-bar {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.spec-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.spec-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.spec-item strong {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 0.2rem;
+}
+
+.color-transistor {
+  color: #10b981 !important;
+}
+
+.milestone-body-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 800px) {
+  .milestone-body-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.milestone-col h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text-main);
+}
+
+.milestone-col p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.highlight-col {
+  padding: 1.25rem;
+  border-radius: 12px;
+  background: var(--page-bg);
+  border-left: 4px solid var(--primary-color, #0284c7);
+}
+
+/* Density Scale Visualizer */
+.density-scale-card {
+  padding: 2rem;
+  border-radius: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 2.5rem;
+}
+
+.density-scale-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.scale-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.growth-bars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.growth-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.growth-bar-row:hover {
+  background: var(--page-bg);
+}
+
+.growth-bar-row.active-row {
+  background: rgba(2, 132, 199, 0.08);
+}
+
+.bar-year {
+  width: 48px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.bar-track {
+  flex: 1;
+  height: 18px;
+  background: var(--page-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #0284c7 0%, #10b981 100%);
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+
+.bar-count {
+  width: 200px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-align: right;
+}
