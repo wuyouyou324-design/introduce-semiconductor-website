@@ -38,11 +38,18 @@ describe('Introduce Semiconductor Website Comprehensive Tests', () => {
     expect(screen.getByText('← 返回學習列表')).toBeDefined();
   });
 
-  it('navigates to logic gates lab page', () => {
+  it('navigates to logic gates lab page and can switch to wafer yield lab', () => {
     render(<App />);
     const labButtons = screen.getAllByText('邏輯閘實驗室');
     fireEvent.click(labButtons[0]);
     expect(screen.getByRole('heading', { name: '邏輯閘實驗室' })).toBeDefined();
+
+    // Click on Wafer Yield tab
+    const waferTab = screen.getByText(/晶圓良率計算機/);
+    fireEvent.click(waferTab);
+    expect(screen.getByRole('heading', { name: '晶圓良率與晶粒計算機' })).toBeDefined();
+    expect(screen.getByText(/總毛晶粒數 \(DPW\)/)).toBeDefined();
+    expect(screen.getAllByText(/超大 AI 晶片|超級 AI 晶片/)[0]).toBeDefined();
   });
 
   it('navigates to manufacturing page and switches process steps with visualizer using step IDs', () => {

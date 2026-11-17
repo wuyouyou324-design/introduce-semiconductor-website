@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useRouter } from '../app/useRouter';
 import { useLanguage } from '../app/useLanguage';
 import { type Language } from '../data/translations';
+import { LabNav } from '../components/lab/LabNav';
 import './ContentPages.css';
 
 type Gate = 'AND' | 'OR' | 'NOT' | 'NAND' | 'NOR' | 'XOR' | 'XNOR';
@@ -244,6 +245,7 @@ export function LogicGatesLabPage() {
         <p>{t.labDesc}</p>
       </section>
       <div className="content-container">
+        <LabNav currentTab="logic-gates" />
         <section className="lab-panel">
           {/* Lab Mode Toggle */}
           <div className="gate-tabs lab-mode-tabs" role="tablist">

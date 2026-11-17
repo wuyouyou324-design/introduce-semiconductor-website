@@ -740,3 +740,419 @@
 }
 
 
+
+/* ==========================================================================
+   Lab Navigation Bar
+   ========================================================================== */
+.lab-nav-bar {
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: var(--shadow-card);
+}
+
+.lab-nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.lab-nav-tab {
+  flex: 1;
+  min-width: 180px;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.lab-nav-tab:hover {
+  background: var(--nav-hover-bg, rgba(56, 189, 248, 0.08));
+  color: var(--text-main);
+}
+
+.lab-nav-tab.active {
+  background: var(--primary-color, #0284c7);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
+}
+
+/* ==========================================================================
+   Wafer Yield Lab Styles
+   ========================================================================== */
+.wafer-presets-section {
+  margin-bottom: 2rem;
+  padding: 1.25rem;
+  border-radius: 12px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+}
+
+.presets-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.presets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.preset-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--page-bg);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.preset-btn:hover {
+  border-color: var(--primary-color, #0284c7);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.preset-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.25rem;
+}
+
+.preset-badge {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.wafer-lab-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 900px) {
+  .wafer-lab-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.wafer-controls-card,
+.wafer-results-card {
+  padding: 1.75rem;
+  border-radius: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-card);
+}
+
+.wafer-controls-card h2,
+.wafer-results-card h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+}
+
+.param-group {
+  margin-bottom: 1.25rem;
+}
+
+.param-group label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.4rem;
+}
+
+.param-group label strong {
+  color: var(--primary-color, #0284c7);
+}
+
+.param-group input[type="range"] {
+  width: 100%;
+  accent-color: var(--primary-color, #0284c7);
+  cursor: pointer;
+}
+
+.param-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.param-hint {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.wafer-size-selector {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.size-btn {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: var(--page-bg);
+  color: var(--text-main);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.size-btn.active {
+  background: var(--primary-color, #0284c7);
+  color: #fff;
+  border-color: var(--primary-color, #0284c7);
+}
+
+.reroll-btn {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px dashed var(--primary-color, #0284c7);
+  background: rgba(2, 132, 199, 0.06);
+  color: var(--primary-color, #0284c7);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reroll-btn:hover {
+  background: rgba(2, 132, 199, 0.14);
+}
+
+/* Metrics Summary Grid */
+.metrics-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.metric-box {
+  padding: 1rem;
+  border-radius: 10px;
+  background: var(--page-bg);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.metric-value {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.metric-box.highlight .metric-value {
+  color: #0284c7;
+}
+
+.metric-box.success .metric-value {
+  color: #10b981;
+}
+
+.metric-box.primary .metric-value {
+  color: #6366f1;
+}
+
+.metric-box.warning .metric-value {
+  color: #f59e0b;
+}
+
+.metric-sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* SVG Wafer Canvas */
+.wafer-svg-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.wafer-legend {
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.legend-item .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.dot.good {
+  background: #10b981;
+}
+
+.dot.defect {
+  background: #ef4444;
+}
+
+.dot.edge {
+  background: #64748b;
+}
+
+.wafer-canvas-wrapper {
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(15, 23, 42, 0.05) 0%, transparent 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.wafer-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.wafer-disk {
+  fill: #cbd5e1;
+  stroke: #94a3b8;
+  stroke-width: 2;
+  transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .wafer-disk {
+  fill: #1e293b;
+  stroke: #334155;
+}
+
+.wafer-usable-border {
+  fill: none;
+  stroke: #0284c7;
+  stroke-width: 0.8;
+  stroke-dasharray: 2, 2;
+  opacity: 0.7;
+}
+
+.wafer-die {
+  transition: all 0.2s ease;
+}
+
+.wafer-die.die-good {
+  fill: #10b981;
+  opacity: 0.85;
+}
+
+.wafer-die.die-good:hover {
+  fill: #34d399;
+  opacity: 1;
+  stroke: #ffffff;
+  stroke-width: 0.5;
+}
+
+.wafer-die.die-defect {
+  fill: #ef4444;
+  opacity: 0.9;
+}
+
+.wafer-die.die-edge {
+  fill: #64748b;
+  opacity: 0.35;
+}
+
+/* Knowledge breakdown card */
+.knowledge-breakdown-card {
+  margin-bottom: 2.5rem;
+  padding: 2rem;
+  border-radius: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-card);
+}
+
+.knowledge-breakdown-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: var(--text-main);
+}
+
+.knowledge-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.knowledge-columns .col h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color, #0284c7);
+}
+
+.knowledge-columns .col p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.knowledge-columns .col code {
+  display: inline-block;
+  padding: 0.2rem 0.4rem;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+  background: rgba(2, 132, 199, 0.1);
+  color: var(--primary-color, #0284c7);
+  font-weight: 700;
+  font-size: 0.85rem;
+}

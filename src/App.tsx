@@ -7,6 +7,7 @@ import { HomePage } from './pages/HomePage';
 import { LearnPage } from './pages/LearnPage';
 import { LearnArticlePage } from './pages/LearnArticlePage';
 import { LogicGatesLabPage } from './pages/LogicGatesLabPage';
+import { WaferYieldLabPage } from './pages/WaferYieldLabPage';
 import { ManufacturingPage } from './pages/ManufacturingPage';
 import { GlossaryPage } from './pages/GlossaryPage';
 import { NotFoundPage } from './pages/NotFoundPage';
@@ -15,6 +16,7 @@ const staticRoutes = [
   { path: '/', render: () => <HomePage /> },
   { path: '/learn', render: () => <LearnPage /> },
   { path: '/lab/logic-gates', render: () => <LogicGatesLabPage /> },
+  { path: '/lab/wafer-yield', render: () => <WaferYieldLabPage /> },
   { path: '/manufacturing', render: () => <ManufacturingPage /> },
   { path: '/glossary', render: () => <GlossaryPage /> },
 ];
