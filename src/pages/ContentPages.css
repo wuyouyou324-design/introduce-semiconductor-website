@@ -1156,3 +1156,121 @@
   font-weight: 700;
   font-size: 0.85rem;
 }
+
+/* ==========================================================================
+   Full Adder and 4-Bit ALU Lab Styles
+   ========================================================================== */
+.four-bit-controls {
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  background: var(--page-bg);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.four-bit-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.bit-row-label {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  min-width: 140px;
+}
+
+.bit-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.bit-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bit-btn.on {
+  background: var(--primary-color, #0284c7);
+  color: #fff;
+  border-color: var(--primary-color, #0284c7);
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.4);
+}
+
+.bit-label {
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+.bit-val {
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.bit-dec {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--primary-color, #0284c7);
+}
+
+.op-mode-toggle {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.mode-btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-main);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mode-btn.active {
+  background: var(--primary-color, #0284c7);
+  color: #fff;
+  border-color: var(--primary-color, #0284c7);
+}
+
+.four-bit-calc-badge {
+  margin-top: 1rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  font-family: monospace;
+  font-size: 1rem;
+}
+
+.overflow-tag {
+  color: #ef4444;
+  font-size: 0.85rem;
+  margin-left: 0.75rem;
+}
+
+.row-active {
+  background: rgba(2, 132, 199, 0.12) !important;
+  font-weight: 700;
+}

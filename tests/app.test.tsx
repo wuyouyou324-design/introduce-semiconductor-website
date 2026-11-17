@@ -106,4 +106,25 @@ describe('Introduce Semiconductor Website Comprehensive Tests', () => {
     const inputAButton = screen.getByRole('button', { name: /輸入 A/i });
     fireEvent.click(inputAButton);
   });
+
+  it('interacts with full adder and 4-bit adder circuit lab', () => {
+    render(<App />);
+    const labButtons = screen.getAllByText('邏輯閘實驗室');
+    fireEvent.click(labButtons[0]);
+
+    // Switch to circuit tab
+    const circuitTab = screen.getByText('串接電路與半加器');
+    fireEvent.click(circuitTab);
+
+    // Switch to full-adder
+    const fullAdderBtn = screen.getByText('全加器 (Full-Adder)');
+    fireEvent.click(fullAdderBtn);
+    expect(screen.getAllByText(/進位輸入 \(Cin\)/)[0]).toBeDefined();
+
+    // Switch to 4-bit adder
+    const fourBitBtn = screen.getByText('4 位元加減運算器 (4-bit ALU)');
+    fireEvent.click(fourBitBtn);
+    expect(screen.getByText(/輸入 A \(4 位元\)/)).toBeDefined();
+    expect(screen.getByText(/4-Bit Ripple Carry Adder/)).toBeDefined();
+  });
 });
