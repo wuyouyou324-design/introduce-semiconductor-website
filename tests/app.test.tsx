@@ -150,4 +150,17 @@ describe('Introduce Semiconductor Website Comprehensive Tests', () => {
     fireEvent.click(btnHigh);
     expect(screen.getByText(/Vout = 0/)).toBeDefined();
   });
+
+  it('navigates to semiconductor ecosystem page and switches supply chain nodes', () => {
+    render(<App />);
+    const ecoButtons = screen.getAllByText('產業生態');
+    fireEvent.click(ecoButtons[0]);
+    expect(screen.getByRole('heading', { name: '半導體產業鏈與分工全景圖' })).toBeDefined();
+
+    // Click on EDA & IP stage
+    const edaNode = screen.getByText(/EDA 軟體/);
+    fireEvent.click(edaNode);
+    expect(screen.getAllByText(/Synopsys \(新思科技\)/)[0]).toBeDefined();
+    expect(screen.getByText(/產業最上游/)).toBeDefined();
+  });
 });

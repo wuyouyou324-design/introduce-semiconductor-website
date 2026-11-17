@@ -10,6 +10,7 @@ import { LogicGatesLabPage } from './pages/LogicGatesLabPage';
 import { WaferYieldLabPage } from './pages/WaferYieldLabPage';
 import { TransistorLabPage } from './pages/TransistorLabPage';
 import { ManufacturingPage } from './pages/ManufacturingPage';
+import { EcosystemPage } from './pages/EcosystemPage';
 import { GlossaryPage } from './pages/GlossaryPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 
@@ -20,6 +21,7 @@ const staticRoutes = [
   { path: '/lab/wafer-yield', render: () => <WaferYieldLabPage /> },
   { path: '/lab/transistor', render: () => <TransistorLabPage /> },
   { path: '/manufacturing', render: () => <ManufacturingPage /> },
+  { path: '/ecosystem', render: () => <EcosystemPage /> },
   { path: '/glossary', render: () => <GlossaryPage /> },
 ];
 

@@ -12,6 +12,7 @@ const pageTitles = {
     '/lab/wafer-yield': '晶圓良率計算機｜半導體啟蒙基地',
     '/lab/transistor': 'MOSFET 與 CMOS 模擬器｜半導體啟蒙基地',
     '/manufacturing': '晶片製造工藝｜半導體啟蒙基地',
+    '/ecosystem': '半導體產業鏈全景圖｜半導體啟蒙基地',
     '/glossary': '半導體詞彙表｜半導體啟蒙基地',
   },
   en: {
@@ -21,6 +22,7 @@ const pageTitles = {
     '/lab/wafer-yield': 'Wafer Yield Calculator | Semiconductor Ignition Base',
     '/lab/transistor': 'Transistor & CMOS Lab | Semiconductor Ignition Base',
     '/manufacturing': 'Chip Manufacturing | Semiconductor Ignition Base',
+    '/ecosystem': 'Semiconductor Ecosystem | Semiconductor Ignition Base',
     '/glossary': 'Semiconductor Glossary | Semiconductor Ignition Base',
   },
 };
