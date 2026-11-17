@@ -1274,3 +1274,214 @@
   background: rgba(2, 132, 199, 0.12) !important;
   font-weight: 700;
 }
+
+/* ==========================================================================
+   Transistor & CMOS Lab Styles
+   ========================================================================== */
+.transistor-layout,
+.cmos-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 900px) {
+  .transistor-layout,
+  .cmos-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.transistor-controls-card,
+.transistor-visual-card,
+.cmos-controls-card,
+.cmos-circuit-card {
+  padding: 1.75rem;
+  border-radius: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-card);
+}
+
+.transistor-controls-card h2,
+.transistor-visual-card h2,
+.cmos-controls-card h2,
+.cmos-circuit-card h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+}
+
+.state-status-indicator {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: var(--page-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.status-pill {
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+}
+
+.status-pill.on {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.status-pill.off {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.fet-svg-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.fet-cross-svg {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  background: var(--page-bg);
+  border: 1px solid var(--border-color);
+}
+
+[data-theme='dark'] .fet-substrate {
+  fill: #1e293b;
+}
+
+.fet-metrics-bar {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.metric-pill {
+  flex: 1;
+  padding: 0.75rem;
+  background: var(--page-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.metric-pill .label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.metric-pill strong {
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.color-on {
+  color: #10b981 !important;
+}
+
+.color-off {
+  color: #ef4444 !important;
+}
+
+.color-out {
+  color: var(--primary-color, #0284c7) !important;
+  font-size: 1.2rem;
+}
+
+/* CMOS Inverter Specifics */
+.cmos-input-toggle {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.input-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 2px solid var(--border-color);
+  background: var(--page-bg);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.input-btn.active {
+  border-color: var(--primary-color, #0284c7);
+  background: rgba(2, 132, 199, 0.08);
+}
+
+.input-btn .btn-bin {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--primary-color, #0284c7);
+}
+
+.input-btn .btn-txt {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.cmos-truth-box {
+  padding: 1rem;
+  background: var(--page-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cmos-truth-box .row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.cmos-truth-box .row.result {
+  border-top: 1px solid var(--border-color);
+  padding-top: 0.75rem;
+  margin-top: 0.25rem;
+  font-size: 1.05rem;
+}
+
+.cmos-svg-wrapper {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.cmos-svg {
+  width: 100%;
+  height: auto;
+}
+
+.cmos-explanation-pill {
+  margin-top: 1.25rem;
+  padding: 1rem;
+  background: rgba(2, 132, 199, 0.08);
+  border-radius: 10px;
+  border: 1px solid rgba(2, 132, 199, 0.2);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-main);
+}

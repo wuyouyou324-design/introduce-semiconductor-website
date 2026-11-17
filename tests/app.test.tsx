@@ -127,4 +127,27 @@ describe('Introduce Semiconductor Website Comprehensive Tests', () => {
     expect(screen.getByText(/輸入 A \(4 位元\)/)).toBeDefined();
     expect(screen.getByText(/4-Bit Ripple Carry Adder/)).toBeDefined();
   });
+
+  it('navigates to transistor & CMOS lab and interacts with components', () => {
+    render(<App />);
+    const labButtons = screen.getAllByText('邏輯閘實驗室');
+    fireEvent.click(labButtons[0]);
+
+    // Click on Transistor & CMOS tab
+    const transistorTab = screen.getByText(/電晶體與 CMOS 模擬/);
+    fireEvent.click(transistorTab);
+    expect(screen.getByRole('heading', { name: 'MOSFET 與 CMOS 動態模擬器' })).toBeDefined();
+    expect(screen.getByText(/電晶體偏壓控制/)).toBeDefined();
+
+    // Switch to CMOS Inverter subtab
+    const cmosSubTab = screen.getByText(/互補式 CMOS 反相器/);
+    fireEvent.click(cmosSubTab);
+    expect(screen.getByText(/CMOS 輸入訊號切換/)).toBeDefined();
+    expect(screen.getByText(/Vout = 1/)).toBeDefined();
+
+    // Toggle Vin to 1
+    const btnHigh = screen.getByText(/輸入高電位/);
+    fireEvent.click(btnHigh);
+    expect(screen.getByText(/Vout = 0/)).toBeDefined();
+  });
 });
