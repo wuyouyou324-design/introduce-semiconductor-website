@@ -176,4 +176,26 @@ describe('Introduce Semiconductor Website Comprehensive Tests', () => {
     expect(screen.getByRole('heading', { name: /Intel 4004/ })).toBeDefined();
     expect(screen.getAllByText('2,300 顆')[0]).toBeDefined();
   });
+
+  it('navigates to band gap simulator lab and interacts with materials and light', () => {
+    render(<App />);
+    const labButtons = screen.getAllByText('邏輯閘實驗室');
+    fireEvent.click(labButtons[0]);
+
+    // Click on Band Gap tab
+    const bandGapTab = screen.getByText(/能帶理論與電子躍遷/);
+    fireEvent.click(bandGapTab);
+    expect(screen.getByRole('heading', { name: '能帶結構模擬器' })).toBeDefined();
+    expect(screen.getByText(/控制面板/)).toBeDefined();
+
+    // Switch material to Germanium (Ge)
+    const geBtn = screen.getByText(/鍺 \(Ge\)/);
+    fireEvent.click(geBtn);
+    expect(screen.getByText(/0.624 eV/)).toBeDefined();
+
+    // Toggle Light ON
+    const lightBtn = screen.getByText(/光照關閉/);
+    fireEvent.click(lightBtn);
+    expect(screen.getByText(/光照開啟/)).toBeDefined();
+  });
 });

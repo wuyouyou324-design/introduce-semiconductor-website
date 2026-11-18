@@ -84,18 +84,19 @@ export function BandGapLabPage() {
   };
 
   return (
-    <div className="page-container">
-      <LabNav currentTab="band-gap" />
-
-      <div className="content-section">
-        <h1 className="section-title">
-          {zh ? '能帶結構模擬器' : 'Energy Band Gap Simulator'}
-        </h1>
-        <p className="section-intro">
+    <div className="content-page band-gap-page">
+      <section className="content-hero">
+        <span className="eyebrow">{zh ? '互動體驗 · 能帶理論與量子物理' : 'Interactive Lab · Energy Band Theory'}</span>
+        <h1>{zh ? '能帶結構模擬器' : 'Energy Band Gap Simulator'}</h1>
+        <p>
           {zh
-            ? '調整溫度、切換材料或開啟光照，觀察電子如何從價帶躍遷至導帶。'
+            ? '調整溫度、切換材料或開啟光照，觀察電子如何從價帶躍遷至導帶，理解導體、半導體與絕緣體的本質差異！'
             : 'Adjust temperature, switch material, or enable light to observe electrons jumping from the valence band to the conduction band.'}
         </p>
+      </section>
+
+      <div className="content-container">
+        <LabNav currentTab="band-gap" />
 
         <div className="band-gap-layout">
           {/* Controls */}

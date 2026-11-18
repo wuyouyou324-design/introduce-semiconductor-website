@@ -1984,3 +1984,233 @@
   color: var(--text-muted);
   text-align: right;
 }
+
+/* ==========================================================================
+   Band Gap Lab Styles
+   ========================================================================== */
+.band-gap-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 900px) {
+  .band-gap-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.band-gap-controls,
+.band-gap-diagram,
+.knowledge-panel {
+  padding: 1.75rem;
+  border-radius: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-card);
+}
+
+.band-gap-controls h2,
+.band-gap-diagram h2,
+.knowledge-panel h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+}
+
+.control-group {
+  margin-bottom: 1.5rem;
+}
+
+.control-group:last-child {
+  margin-bottom: 0;
+}
+
+.control-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.material-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.material-btn {
+  padding: 0.5rem 0.85rem;
+  border-radius: 8px;
+  background: var(--page-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.material-btn:hover {
+  border-color: var(--primary-color, #0284c7);
+}
+
+.material-btn.active {
+  background: var(--primary-color, #0284c7);
+  color: white;
+  border-color: var(--primary-color, #0284c7);
+}
+
+.temp-slider {
+  width: 100%;
+  accent-color: var(--primary-color, #0284c7);
+  cursor: pointer;
+  margin: 0.5rem 0 0.25rem;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.light-toggle {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+.light-toggle.off {
+  background: var(--page-bg);
+  color: var(--text-muted);
+}
+
+.light-toggle.on {
+  background: rgba(249, 115, 22, 0.15);
+  color: #f97316;
+  border-color: #f97316;
+}
+
+.band-gap-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.stat-item {
+  background: var(--page-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.stat-value {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.band-svg {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  background: var(--page-bg);
+  border: 1px solid var(--border-color);
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.conductivity-bar-wrap {
+  margin-bottom: 1rem;
+}
+
+.conductivity-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.4rem;
+}
+
+.conductivity-track {
+  width: 100%;
+  height: 12px;
+  background: var(--page-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.conductivity-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.conductivity-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.knowledge-panel {
+  margin-top: 2.5rem;
+}
+
+.knowledge-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 800px) {
+  .knowledge-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.knowledge-item {
+  background: var(--page-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.knowledge-item h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.knowledge-item p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
