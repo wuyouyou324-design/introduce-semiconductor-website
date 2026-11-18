@@ -9,6 +9,7 @@ import { LearnArticlePage } from './pages/LearnArticlePage';
 import { LogicGatesLabPage } from './pages/LogicGatesLabPage';
 import { WaferYieldLabPage } from './pages/WaferYieldLabPage';
 import { TransistorLabPage } from './pages/TransistorLabPage';
+import { BandGapLabPage } from './pages/BandGapLabPage';
 import { ManufacturingPage } from './pages/ManufacturingPage';
 import { EcosystemPage } from './pages/EcosystemPage';
 import { TimelinePage } from './pages/TimelinePage';
@@ -21,6 +22,7 @@ const staticRoutes = [
   { path: '/lab/logic-gates', render: () => <LogicGatesLabPage /> },
   { path: '/lab/wafer-yield', render: () => <WaferYieldLabPage /> },
   { path: '/lab/transistor', render: () => <TransistorLabPage /> },
+  { path: '/lab/band-gap', render: () => <BandGapLabPage /> },
   { path: '/manufacturing', render: () => <ManufacturingPage /> },
   { path: '/ecosystem', render: () => <EcosystemPage /> },
   { path: '/timeline', render: () => <TimelinePage /> },

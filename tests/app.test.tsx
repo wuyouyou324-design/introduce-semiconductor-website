@@ -117,12 +117,12 @@ describe('Introduce Semiconductor Website Comprehensive Tests', () => {
     fireEvent.click(circuitTab);
 
     // Switch to full-adder
-    const fullAdderBtn = screen.getByText('全加器 (Full-Adder)');
+    const fullAdderBtn = screen.getByText(/全加器/);
     fireEvent.click(fullAdderBtn);
     expect(screen.getAllByText(/進位輸入 \(Cin\)/)[0]).toBeDefined();
 
     // Switch to 4-bit adder
-    const fourBitBtn = screen.getByText('4 位元加減運算器 (4-bit ALU)');
+    const fourBitBtn = screen.getByText(/4 位元連鎖進位加減運算器/);
     fireEvent.click(fourBitBtn);
     expect(screen.getByText(/輸入 A \(4 位元\)/)).toBeDefined();
     expect(screen.getByText(/4-Bit Ripple Carry Adder/)).toBeDefined();

@@ -2,7 +2,7 @@ import { useRouter } from '../../app/useRouter';
 import { useLanguage } from '../../app/useLanguage';
 
 interface LabNavProps {
-  currentTab: 'logic-gates' | 'wafer-yield' | 'transistor';
+  currentTab: 'logic-gates' | 'wafer-yield' | 'transistor' | 'band-gap';
 }
 
 export function LabNav({ currentTab }: LabNavProps) {
@@ -27,6 +27,12 @@ export function LabNav({ currentTab }: LabNavProps) {
       path: '/lab/transistor',
       labelZh: '🔬 電晶體與 CMOS 模擬',
       labelEn: '🔬 Transistor & CMOS Lab',
+    },
+    {
+      id: 'band-gap',
+      path: '/lab/band-gap',
+      labelZh: '⚛️ 能帶理論與電子躍遷',
+      labelEn: '⚛️ Band Gap Simulator',
     },
   ];
 

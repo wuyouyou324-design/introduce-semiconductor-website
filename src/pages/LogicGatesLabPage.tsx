@@ -378,6 +378,9 @@ function CircuitSvg({ circuitType, a, b, cin, fourBitA, fourBitB, subMode }: Cir
                 <text x={boxX + 15} y={boxY + 42} fontSize="9" fill="var(--text-muted)">
                   Bit 2^{idx} ({Math.pow(2, idx)})
                 </text>
+                <text x={boxX + 15} y={boxY + 56} fontSize="9" fill="var(--text-muted)">
+                  Cin: {cinStage ? 1 : 0} | Cout: {coutStage ? 1 : 0}
+                </text>
 
                 {/* Input A_i (top left) */}
                 <line x1={boxX + 25} y1="35" x2={boxX + 25} y2={boxY} stroke={bitA ? activeColor : inactiveColor} strokeWidth="3" />
@@ -638,10 +641,7 @@ export function LogicGatesLabPage() {
             <>
               <div className="gate-tabs circuit-mode-tabs" role="tablist" aria-label={t.selectCircuit}>
                 {circuits.map((item) => {
-                  let label = item;
-                  if (item === 'half-adder') label = t.halfAdderLabel;
-                  if (item === 'full-adder') label = t.fullAdderLabel;
-                  if (item === '4bit-adder') label = t.fourBitAdderLabel;
+                  const label = circuitDescriptions[language][item].name;
 
                   return (
                     <button
