@@ -1,8 +1,8 @@
 .site-footer {
   background-color: var(--footer-bg);
-  color: var(--header-muted);
-  border-top: 1px solid var(--header-border);
-  padding: 48px 0 32px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-color);
+  padding: 56px 0 36px;
   margin-top: auto;
 }
 
@@ -16,25 +16,29 @@
 }
 
 .footer-brand h3 {
-  color: var(--hero-text);
-  font-size: 18px;
+  color: var(--text-heading);
+  font-size: 16px;
   font-weight: 700;
-  margin: 0 0 12px 0;
+  letter-spacing: -0.015em;
+  margin: 0 0 10px 0;
 }
 
 .footer-brand p,
 .footer-info p {
   font-size: 14px;
-  line-height: 1.6;
-  margin: 0 0 16px 0;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin: 0 0 14px 0;
 }
 
 .footer-links h4,
 .footer-info h4 {
-  color: var(--hero-text);
-  font-size: 16px;
+  color: var(--text-heading);
+  font-size: 13px;
   font-weight: 600;
-  margin: 0 0 16px 0;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0 0 14px 0;
 }
 
 .footer-links ul {
@@ -43,34 +47,44 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .footer-links button {
   background: transparent;
   border: none;
-  color: var(--header-muted);
+  color: var(--text-muted);
   font-size: 14px;
   cursor: pointer;
-  padding: 0;
+  padding: 2px 0;
   text-align: left;
-  transition: color 0.2s;
+  transition: color 0.18s ease;
   font-family: inherit;
 }
 
 .footer-links button:hover {
-  color: #3b82f6;
+  color: var(--text-heading);
+}
+
+.footer-links button:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .copyright {
-  font-size: 13px;
-  color: var(--header-muted);
-  margin-top: 24px !important;
+  font-family: var(--mono);
+  font-size: 12px !important;
+  color: var(--text-subtle) !important;
+  margin-top: 20px !important;
 }
 
 @media (max-width: 768px) {
+  .site-footer {
+    padding: 40px 0 28px;
+  }
   .footer-container {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 28px;
   }
 }
