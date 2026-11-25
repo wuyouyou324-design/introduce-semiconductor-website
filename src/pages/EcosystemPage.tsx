@@ -1,13 +1,30 @@
 import { useState } from 'react';
 import { useRouter } from '../app/useRouter';
 import { useLanguage } from '../app/useLanguage';
+import {
+  IconMonitor,
+  IconCpu,
+  IconSettings,
+  IconFactory,
+  IconPackage,
+  IconRocket,
+  IconBuilding,
+  IconTarget,
+  IconDollarSign,
+  IconSearch,
+  IconBarChart,
+} from '../components/ui/Icons';
 import './ContentPages.css';
+
+import type { ComponentType, SVGProps } from 'react';
 
 type EcosystemStageId = 'eda-ip' | 'fabless' | 'equipment' | 'foundry' | 'osat' | 'end-devices';
 
+type IconComponent = ComponentType<SVGProps<SVGSVGElement> & { size?: number | string }>;
+
 interface StageData {
   id: EcosystemStageId;
-  icon: string;
+  icon: IconComponent;
   nameZh: string;
   nameEn: string;
   badgeZh: string;
@@ -26,7 +43,7 @@ interface StageData {
 const STAGES: StageData[] = [
   {
     id: 'eda-ip',
-    icon: '💻',
+    icon: IconMonitor,
     nameZh: 'EDA 軟體與矽智財 (IP)',
     nameEn: 'EDA Software & IP Cores',
     badgeZh: '產業最上游 · 數位藍圖',
@@ -51,7 +68,7 @@ const STAGES: StageData[] = [
   },
   {
     id: 'fabless',
-    icon: '🧠',
+    icon: IconCpu,
     nameZh: '無晶圓廠 IC 設計 (Fabless)',
     nameEn: 'Fabless IC Design',
     badgeZh: '演算法與大腦 · 架構創新',
@@ -76,7 +93,7 @@ const STAGES: StageData[] = [
   },
   {
     id: 'equipment',
-    icon: '⚙️',
+    icon: IconSettings,
     nameZh: '半導體設備與關鍵材料',
     nameEn: 'Equipment & Materials',
     badgeZh: '物理極限工程 · 核心設備',
@@ -101,7 +118,7 @@ const STAGES: StageData[] = [
   },
   {
     id: 'foundry',
-    icon: '🏭',
+    icon: IconFactory,
     nameZh: '晶圓代工製造 (Foundry)',
     nameEn: 'Dedicated Foundry Fabrication',
     badgeZh: '原子級奈米雕刻 · 重資本樞紐',
@@ -126,7 +143,7 @@ const STAGES: StageData[] = [
   },
   {
     id: 'osat',
-    icon: '📦',
+    icon: IconPackage,
     nameZh: '封裝測試與先進封裝 (OSAT)',
     nameEn: 'OSAT & Advanced Packaging',
     badgeZh: '後摩爾時代救星 · 2.5D/3D 異質整合',
@@ -151,7 +168,7 @@ const STAGES: StageData[] = [
   },
   {
     id: 'end-devices',
-    icon: '🚀',
+    icon: IconRocket,
     nameZh: '終端系統與 AI 應用 (End Devices)',
     nameEn: 'End Systems & Applications',
     badgeZh: '數位文明終端 · 價值兌現',
@@ -210,7 +227,7 @@ export function EcosystemPage() {
                   onClick={() => setSelectedStageId(stage.id)}
                 >
                   <span className="node-step">0{idx + 1}</span>
-                  <span className="node-icon">{stage.icon}</span>
+                  <span className="node-icon" aria-hidden="true"><stage.icon size="1.2em" /></span>
                   <span className="node-title">{isZh ? stage.nameZh.split(' ')[0] : stage.nameEn.split(' ')[0]}</span>
                   {idx < STAGES.length - 1 && <span className="node-arrow" aria-hidden="true">→</span>}
                 </button>
@@ -222,7 +239,7 @@ export function EcosystemPage() {
         {/* Selected Stage Detail Showcase Card */}
         <div className="stage-detail-card">
           <div className="stage-header">
-            <span className="stage-icon-big">{selectedStage.icon}</span>
+            <span className="stage-icon-big" aria-hidden="true"><selectedStage.icon size="2em" /></span>
             <div className="stage-title-wrap">
               <span className="stage-badge">{isZh ? selectedStage.badgeZh : selectedStage.badgeEn}</span>
               <h2>{isZh ? selectedStage.nameZh : selectedStage.nameEn}</h2>
@@ -234,7 +251,7 @@ export function EcosystemPage() {
             {/* Left Column: Companies & Technology */}
             <div className="stage-col">
               <div className="info-sub-box">
-                <h4>🏢 {isZh ? '全球核心代表廠商' : 'Global Industry Leaders'}</h4>
+                <h4><IconBuilding size="1em" aria-hidden="true" /> {isZh ? '全球核心代表廠商' : 'Global Industry Leaders'}</h4>
                 <div className="company-tags">
                   {selectedStage.companies.map((c) => (
                     <span key={c} className="company-pill">{c}</span>
@@ -243,12 +260,12 @@ export function EcosystemPage() {
               </div>
 
               <div className="info-sub-box">
-                <h4>🎯 {isZh ? '核心技術焦點' : 'Core Technology Focus'}</h4>
+                <h4><IconTarget size="1em" aria-hidden="true" /> {isZh ? '核心技術焦點' : 'Core Technology Focus'}</h4>
                 <p>{isZh ? selectedStage.techFocusZh : selectedStage.techFocusEn}</p>
               </div>
 
               <div className="info-sub-box">
-                <h4>💰 {isZh ? '商業模式與利潤結構' : 'Business Model & Margin Profile'}</h4>
+                <h4><IconDollarSign size="1em" aria-hidden="true" /> {isZh ? '商業模式與利潤結構' : 'Business Model & Margin Profile'}</h4>
                 <p className="margin-text">{isZh ? selectedStage.marginZh : selectedStage.marginEn}</p>
               </div>
             </div>
@@ -256,7 +273,7 @@ export function EcosystemPage() {
             {/* Right Column: Deep Insights */}
             <div className="stage-col">
               <div className="info-sub-box highlight-box">
-                <h4>🔍 {isZh ? '產業深層洞察與戰略地位' : 'Strategic Insights & Value Chain'}</h4>
+                <h4><IconSearch size="1em" aria-hidden="true" /> {isZh ? '產業深層洞察與戰略地位' : 'Strategic Insights & Value Chain'}</h4>
                 <ul className="details-list">
                   {(isZh ? selectedStage.detailsZh : selectedStage.detailsEn).map((item, i) => (
                     <li key={i}>{item}</li>
@@ -269,7 +286,7 @@ export function EcosystemPage() {
 
         {/* Global Landscape Matrix Summary Table */}
         <section className="landscape-matrix-card">
-          <h3>📊 {isZh ? '半導體六大環節分工對照表' : 'Full Value Chain Comparison Matrix'}</h3>
+          <h3><IconBarChart size="1em" aria-hidden="true" /> {isZh ? '半導體六大環節分工對照表' : 'Full Value Chain Comparison Matrix'}</h3>
           <div className="matrix-table-wrapper">
             <table className="matrix-table">
               <thead>
@@ -290,7 +307,7 @@ export function EcosystemPage() {
                   >
                     <td><strong>0{idx + 1}</strong></td>
                     <td>
-                      <span style={{ marginRight: '6px' }}>{s.icon}</span>
+                      <span style={{ marginRight: '6px', display: 'inline-flex', verticalAlign: 'middle' }}><s.icon size="1em" /></span>
                       <strong>{isZh ? s.nameZh : s.nameEn}</strong>
                     </td>
                     <td>{s.companies.slice(0, 2).join(', ')}</td>

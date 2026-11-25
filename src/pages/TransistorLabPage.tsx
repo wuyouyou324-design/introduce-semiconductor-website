@@ -2,6 +2,12 @@ import { useState, useMemo } from 'react';
 import { useRouter } from '../app/useRouter';
 import { useLanguage } from '../app/useLanguage';
 import { LabNav } from '../components/lab/LabNav';
+import {
+  IconMicroscope,
+  IconZap,
+  IconSliders,
+  IconLightbulb,
+} from '../components/ui/Icons';
 import './ContentPages.css';
 
 type TransistorType = 'nmos' | 'pmos';
@@ -71,7 +77,7 @@ export function TransistorLabPage() {
             className={activeTab === 'single-fet' ? 'selected' : ''}
             onClick={() => setActiveTab('single-fet')}
           >
-            {isZh ? '🔬 單顆 MOSFET 場效電晶體' : '🔬 Single MOSFET Transistor'}
+            {isZh ? <><IconMicroscope size="1em" aria-hidden="true" /> 單顆 MOSFET 場效電晶體</> : <><IconMicroscope size="1em" aria-hidden="true" /> Single MOSFET Transistor</>}
           </button>
           <button
             type="button"
@@ -80,7 +86,7 @@ export function TransistorLabPage() {
             className={activeTab === 'cmos-inverter' ? 'selected' : ''}
             onClick={() => setActiveTab('cmos-inverter')}
           >
-            {isZh ? '⚡ 互補式 CMOS 反相器 (Inverter)' : '⚡ Complementary CMOS Inverter'}
+            {isZh ? <><IconZap size="1em" aria-hidden="true" /> 互補式 CMOS 反相器 (Inverter)</> : <><IconZap size="1em" aria-hidden="true" /> Complementary CMOS Inverter</>}
           </button>
         </div>
 
@@ -88,7 +94,7 @@ export function TransistorLabPage() {
           <div className="transistor-layout">
             {/* Controls */}
             <div className="transistor-controls-card">
-              <h2>{isZh ? '🎛️ 電晶體偏壓控制' : '🎛️ Biasing Controls'}</h2>
+              <h2>{isZh ? <><IconSliders size="1em" aria-hidden="true" /> 電晶體偏壓控制</> : <><IconSliders size="1em" aria-hidden="true" /> Biasing Controls</>}</h2>
 
               <div className="param-group">
                 <label>
@@ -154,15 +160,15 @@ export function TransistorLabPage() {
                 <span className="status-label">{isZh ? '開關狀態：' : 'Switch State:'}</span>
                 <span className={`status-pill ${isConducting ? 'on' : 'off'}`}>
                   {isConducting
-                    ? (isZh ? '🟢 導通 (Conducting / ON)' : '🟢 ON (Conducting)')
-                    : (isZh ? '🔴 截止 (Cut-off / OFF)' : '🔴 OFF (Cut-off)')}
+                    ? (isZh ? <><span className="status-dot on" aria-hidden="true" /> 導通 (Conducting / ON)</> : <><span className="status-dot on" aria-hidden="true" /> ON (Conducting)</>)
+                    : (isZh ? <><span className="status-dot off" aria-hidden="true" /> 截止 (Cut-off / OFF)</> : <><span className="status-dot off" aria-hidden="true" /> OFF (Cut-off)</>)}
                 </span>
               </div>
             </div>
 
             {/* Visualizer */}
             <div className="transistor-visual-card">
-              <h2>{isZh ? '🔬 MOSFET 剖面結構與導電通道' : '🔬 MOSFET Cross-Section & Channel'}</h2>
+              <h2>{isZh ? <><IconMicroscope size="1em" aria-hidden="true" /> MOSFET 剖面結構與導電通道</> : <><IconMicroscope size="1em" aria-hidden="true" /> MOSFET Cross-Section & Channel</>}</h2>
 
               <div className="fet-svg-container">
                 <svg viewBox="0 0 540 280" className="fet-cross-svg">
@@ -266,7 +272,7 @@ export function TransistorLabPage() {
                   />
                   {isConducting && (
                     <text x="210" y="125" fontSize="11" fontWeight="bold" fill="#ffffff">
-                      {fetType === 'nmos' ? '⚡ 反轉層導電通道' : '⚡ 導電通道 (ON)'}
+                      {fetType === 'nmos' ? '反轉層導電通道' : '導電通道 (ON)'}
                     </text>
                   )}
 
@@ -310,7 +316,7 @@ export function TransistorLabPage() {
           /* CMOS Inverter Lab */
           <div className="cmos-layout">
             <div className="cmos-controls-card">
-              <h2>{isZh ? '🎛️ CMOS 輸入訊號切換' : '🎛️ CMOS Input Signal'}</h2>
+              <h2>{isZh ? <><IconSliders size="1em" aria-hidden="true" /> CMOS 輸入訊號切換</> : <><IconSliders size="1em" aria-hidden="true" /> CMOS Input Signal</>}</h2>
               <p>
                 {isZh
                   ? 'CMOS 由一顆 PMOS（接高電位 Vdd）與一顆 NMOS（接低電位 GND）串聯而成。'
@@ -359,7 +365,7 @@ export function TransistorLabPage() {
             </div>
 
             <div className="cmos-circuit-card">
-              <h2>{isZh ? '⚡ 互補導通電路動態圖解' : '⚡ Complementary Operation Diagram'}</h2>
+              <h2>{isZh ? <><IconZap size="1em" aria-hidden="true" /> 互補導通電路動態圖解</> : <><IconZap size="1em" aria-hidden="true" /> Complementary Operation Diagram</>}</h2>
 
               <div className="cmos-svg-wrapper">
                 <svg viewBox="0 0 420 320" className="cmos-svg">
@@ -427,7 +433,7 @@ export function TransistorLabPage() {
               </div>
 
               <div className="cmos-explanation-pill">
-                💡 {isZh
+                <IconLightbulb size="1em" aria-hidden="true" /> {isZh
                   ? '核心機密：當 Vin=0 時，只有 PMOS 導通將輸出拉至 1；當 Vin=1 時，只有 NMOS 導通將輸出接地至 0。兩者永遠不會同時導通，因此靜態無漏電流，這正是 CMOS 成為全球晶片霸主的核心技術！'
                   : 'Key Insight: At Vin=0, only PMOS conducts to pull output high. At Vin=1, only NMOS conducts to pull output low. They are never on at the same time, ensuring near-zero static power consumption!'}
               </div>
@@ -437,7 +443,7 @@ export function TransistorLabPage() {
 
         {/* Knowledge Card */}
         <div className="knowledge-breakdown-card">
-          <h3>{isZh ? '💡 科普延伸：電晶體的微型化奇蹟' : '💡 Microscopic Miracle: From Planar to GAA'}</h3>
+          <h3>{isZh ? <><IconLightbulb size="1em" aria-hidden="true" /> 科普延伸：電晶體的微型化奇蹟</> : <><IconLightbulb size="1em" aria-hidden="true" /> Microscopic Miracle: From Planar to GAA</>}</h3>
           <div className="knowledge-columns">
             <div className="col">
               <h4>{isZh ? '平面 MOSFET 到 3D FinFET' : 'Planar MOSFET to 3D FinFET'}</h4>

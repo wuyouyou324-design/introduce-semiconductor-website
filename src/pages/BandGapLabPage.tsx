@@ -150,7 +150,21 @@ export function BandGapLabPage() {
                 onClick={() => setLight(l => !l)}
                 aria-pressed={light}
               >
-                {light ? (zh ? '☀️ 光照開啟' : '☀️ Light ON') : (zh ? '🌑 光照關閉' : '🌑 Light OFF')}
+                {light ? (
+                  <>
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ verticalAlign: 'middle', marginRight: 6 }}>
+                      <circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2m-10-10h2m16 0h2m-3.17-6.83l-1.42 1.42m-9.9 9.9l-1.42 1.42m0-12.72l1.42 1.42m9.9 9.9l1.42 1.42"/>
+                    </svg>
+                    {zh ? '光照開啟' : 'Light ON'}
+                  </>
+                ) : (
+                  <>
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ verticalAlign: 'middle', marginRight: 6 }}>
+                      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                    {zh ? '光照關閉' : 'Light OFF'}
+                  </>
+                )}
               </button>
             </div>
 
@@ -279,25 +293,45 @@ export function BandGapLabPage() {
           <h2>{zh ? '能帶理論知識' : 'Energy Band Theory'}</h2>
           <div className="knowledge-grid">
             <div className="knowledge-item">
-              <h3>{zh ? '📐 能帶間隙' : '📐 Band Gap'}</h3>
+              <h3>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ verticalAlign: 'middle', marginRight: 8 }}>
+                  <path d="M2 12h20M2 16h16M2 8h12"/>
+                </svg>
+                {zh ? '能帶間隙' : 'Band Gap'}
+              </h3>
               <p>{zh
                 ? '價帶頂部到導帶底部之間的能量差。電子需要獲得至少這麼多能量才能導電。'
                 : 'Energy difference between the top of the valence band and bottom of the conduction band. Electrons must acquire at least this energy to conduct.'}</p>
             </div>
             <div className="knowledge-item">
-              <h3>{zh ? '🌡️ 溫度效應' : '🌡️ Temperature Effect'}</h3>
+              <h3>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ verticalAlign: 'middle', marginRight: 8 }}>
+                  <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/>
+                </svg>
+                {zh ? '溫度效應' : 'Temperature Effect'}
+              </h3>
               <p>{zh
                 ? '溫度越高，晶格振動越劇烈，能提供給電子的熱能越多，越容易產生電子-電洞對。半導體的能帶間隙通常隨溫度上升而略微縮小。'
                 : 'Higher temperature increases lattice vibrations, providing more thermal energy to electrons, making it easier to generate electron-hole pairs. The band gap slightly decreases with temperature.'}</p>
             </div>
             <div className="knowledge-item">
-              <h3>{zh ? '☀️ 光電效應' : '☀️ Photoelectric Effect'}</h3>
+              <h3>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ verticalAlign: 'middle', marginRight: 8 }}>
+                  <circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2m-10-10h2m16 0h2m-3.17-6.83l-1.42 1.42m-9.9 9.9l-1.42 1.42m0-12.72l1.42 1.42m9.9 9.9l1.42 1.42"/>
+                </svg>
+                {zh ? '光電效應' : 'Photoelectric Effect'}
+              </h3>
               <p>{zh
                 ? '當光子能量 (E=hν) 大於能帶間隙時，可以直接激發電子從價帶躍遷至導帶，這是太陽能電池的工作原理。'
                 : 'When photon energy (E=hν) exceeds the band gap, it can directly excite electrons from valence to conduction band — the principle behind solar cells.'}</p>
             </div>
             <div className="knowledge-item">
-              <h3>{zh ? '🔵 費米能級' : '🔵 Fermi Level'}</h3>
+              <h3>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ verticalAlign: 'middle', marginRight: 8 }}>
+                  <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3" fill="currentColor"/>
+                </svg>
+                {zh ? '費米能級' : 'Fermi Level'}
+              </h3>
               <p>{zh
                 ? '費米能級代表電子在 0 K 時的最高能量。在純半導體中，費米能級位於能帶間隙的中央。摻雜會改變費米能級位置，進而改變導電特性。'
                 : 'The Fermi level is the highest energy level filled by electrons at 0 K. In intrinsic semiconductors it lies in the middle of the gap. Doping shifts it, changing conductivity.'}</p>

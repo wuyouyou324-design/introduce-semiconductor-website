@@ -772,6 +772,15 @@
   cursor: pointer;
   transition: all 0.2s ease;
   text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+.tab-icon {
+  display: inline-flex;
+  align-items: center;
 }
 
 .lab-nav-tab:hover {
@@ -797,7 +806,9 @@
 }
 
 .presets-label {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
   font-size: 0.9rem;
   font-weight: 700;
   color: var(--text-muted);
@@ -830,6 +841,9 @@
 }
 
 .preset-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-main);
@@ -936,6 +950,10 @@
 }
 
 .reroll-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
   width: 100%;
   margin-top: 1rem;
   padding: 0.75rem;
@@ -1234,6 +1252,9 @@
 }
 
 .mode-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   padding: 0.6rem 1.2rem;
   border-radius: 8px;
   border: 1px solid var(--border-color);
@@ -1265,6 +1286,9 @@
 }
 
 .overflow-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   color: #ef4444;
   font-size: 0.85rem;
   margin-left: 0.75rem;
@@ -1328,10 +1352,29 @@
 }
 
 .status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   font-weight: 700;
   font-size: 0.9rem;
   padding: 0.3rem 0.75rem;
   border-radius: 20px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.status-dot.on {
+  background: #10b981;
+}
+
+.status-dot.off {
+  background: #ef4444;
 }
 
 .status-pill.on {

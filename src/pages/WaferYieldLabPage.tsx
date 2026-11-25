@@ -2,11 +2,27 @@ import { useState, useMemo } from 'react';
 import { useRouter } from '../app/useRouter';
 import { useLanguage } from '../app/useLanguage';
 import { LabNav } from '../components/lab/LabNav';
+import {
+  IconBot,
+  IconSmartphone,
+  IconLaptop,
+  IconCar,
+  IconRocket,
+  IconSliders,
+  IconBarChart,
+  IconDice,
+  IconLightbulb,
+} from '../components/ui/Icons';
 import './ContentPages.css';
+
+import type { ComponentType, SVGProps } from 'react';
+
+type IconComponent = ComponentType<SVGProps<SVGSVGElement> & { size?: number | string }>;
 
 interface Preset {
   nameZh: string;
   nameEn: string;
+  icon: IconComponent;
   width: number;
   height: number;
   waferDiameter: number;
@@ -18,8 +34,9 @@ interface Preset {
 
 const PRESETS: Preset[] = [
   {
-    nameZh: '🤖 超級 AI 晶片 / GPU',
-    nameEn: '🤖 Super AI GPU / Accelerator',
+    nameZh: '超級 AI 晶片 / GPU',
+    nameEn: 'Super AI GPU / Accelerator',
+    icon: IconBot,
     width: 28.3,
     height: 28.3,
     waferDiameter: 300,
@@ -29,8 +46,9 @@ const PRESETS: Preset[] = [
     badgeEn: 'Ultra Large (~800mm²)',
   },
   {
-    nameZh: '📱 頂級旗艦手機 SoC',
-    nameEn: '📱 Flagship Smartphone SoC',
+    nameZh: '頂級旗艦手機 SoC',
+    nameEn: 'Flagship Smartphone SoC',
+    icon: IconSmartphone,
     width: 10.5,
     height: 10.5,
     waferDiameter: 300,
@@ -40,8 +58,9 @@ const PRESETS: Preset[] = [
     badgeEn: 'Mainstream (~110mm²)',
   },
   {
-    nameZh: '💻 輕薄筆電 CPU',
-    nameEn: '💻 Laptop CPU / Chiplet',
+    nameZh: '輕薄筆電 CPU',
+    nameEn: 'Laptop CPU / Chiplet',
+    icon: IconLaptop,
     width: 8.5,
     height: 8.5,
     waferDiameter: 300,
@@ -51,8 +70,9 @@ const PRESETS: Preset[] = [
     badgeEn: 'Medium Die (~72mm²)',
   },
   {
-    nameZh: '🚗 車用微控制器 MCU / IoT',
-    nameEn: '🚗 Automotive MCU / IoT Chip',
+    nameZh: '車用微控制器 MCU / IoT',
+    nameEn: 'Automotive MCU / IoT Chip',
+    icon: IconCar,
     width: 4.0,
     height: 4.0,
     waferDiameter: 200,
@@ -188,7 +208,7 @@ export function WaferYieldLabPage() {
 
         {/* Presets Bar */}
         <section className="wafer-presets-section">
-          <span className="presets-label">{isZh ? '🚀 快速載入晶片範例：' : '🚀 Quick Load Presets:'}</span>
+          <span className="presets-label">{isZh ? <><IconRocket size="1em" aria-hidden="true" /> 快速載入晶片範例：</> : <><IconRocket size="1em" aria-hidden="true" /> Quick Load Presets:</>}</span>
           <div className="presets-grid">
             {PRESETS.map((p) => (
               <button
@@ -197,7 +217,7 @@ export function WaferYieldLabPage() {
                 className="preset-btn"
                 onClick={() => applyPreset(p)}
               >
-                <span className="preset-name">{isZh ? p.nameZh : p.nameEn}</span>
+                <span className="preset-name"><p.icon size="1em" aria-hidden="true" /> {isZh ? p.nameZh : p.nameEn}</span>
                 <span className="preset-badge">{isZh ? p.badgeZh : p.badgeEn}</span>
               </button>
             ))}
@@ -208,7 +228,7 @@ export function WaferYieldLabPage() {
         <div className="wafer-lab-layout">
           {/* Controls Panel */}
           <div className="wafer-controls-card">
-            <h2>{isZh ? '🎛️ 晶圓與晶粒參數設置' : '🎛️ Parameters Setup'}</h2>
+            <h2>{isZh ? <><IconSliders size="1em" aria-hidden="true" /> 晶圓與晶粒參數設置</> : <><IconSliders size="1em" aria-hidden="true" /> Parameters Setup</>}</h2>
 
             <div className="param-group">
               <label>
@@ -326,13 +346,13 @@ export function WaferYieldLabPage() {
               className="reroll-btn"
               onClick={() => setSeed((prev) => prev + 13)}
             >
-              🎲 {isZh ? '重新模擬隨機晶圓缺陷分佈' : 'Re-roll Random Defects'}
+              <><IconDice size="1em" aria-hidden="true" /> {isZh ? '重新模擬隨機晶圓缺陷分佈' : 'Re-roll Random Defects'}</>
             </button>
           </div>
 
           {/* Results & Visualizer Panel */}
           <div className="wafer-results-card">
-            <h2>{isZh ? '📊 核心計算與良率統計' : '📊 Calculated Yield Metrics'}</h2>
+            <h2>{isZh ? <><IconBarChart size="1em" aria-hidden="true" /> 核心計算與良率統計</> : <><IconBarChart size="1em" aria-hidden="true" /> Calculated Yield Metrics</>}</h2>
 
             <div className="metrics-summary-grid">
               <div className="metric-box highlight">
@@ -427,7 +447,7 @@ export function WaferYieldLabPage() {
 
         {/* Science and Knowledge Explanation Card */}
         <div className="knowledge-breakdown-card">
-          <h3>{isZh ? '💡 科普延伸：為什麼晶片越大越昂貴？' : '💡 Why Bigger Chips Cost Astronomically More?'}</h3>
+          <h3><IconLightbulb size="1em" aria-hidden="true" /> {isZh ? '科普延伸：為什麼晶片越大越昂貴？' : 'Why Bigger Chips Cost Astronomically More?'}</h3>
           <div className="knowledge-columns">
             <div className="col">
               <h4>{isZh ? '1. 幾何面積 vs 缺陷機率' : '1. Geometric Area vs Defect Odds'}</h4>

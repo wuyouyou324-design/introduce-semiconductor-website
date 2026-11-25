@@ -3,6 +3,7 @@ import { useRouter } from '../app/useRouter';
 import { useLanguage } from '../app/useLanguage';
 import { type Language } from '../data/translations';
 import { LabNav } from '../components/lab/LabNav';
+import { IconAlertTriangle, IconPlus, IconMinus } from '../components/ui/Icons';
 import './ContentPages.css';
 
 type Gate = 'AND' | 'OR' | 'NOT' | 'NAND' | 'NOR' | 'XOR' | 'XNOR';
@@ -438,7 +439,11 @@ function CircuitSvg({ circuitType, a, b, cin, fourBitA, fourBitB, subMode }: Cir
         {/* 4-bit Calculation equation badge */}
         <div className="four-bit-calc-badge">
           <span>{`二進位：${fourBitA.slice().reverse().join('')}₂ (${valA}) ${subMode ? '-' : '+'} ${fourBitB.slice().reverse().join('')}₂ (${valB}) = ${s.slice().reverse().join('')}₂ (${resultVal})`}</span>
-          {carries[4] === 1 && !subMode && <span className="overflow-tag">⚠️ 溢位 (Carry Out = 1)</span>}
+          {carries[4] === 1 && !subMode && (
+            <span className="overflow-tag">
+              <IconAlertTriangle size="1em" aria-hidden="true" /> 溢位 (Carry Out = 1)
+            </span>
+          )}
         </div>
       </div>
     );
@@ -722,14 +727,14 @@ export function LogicGatesLabPage() {
                       className={`mode-btn ${!subMode ? 'active' : ''}`}
                       onClick={() => setSubMode(false)}
                     >
-                      ➕ {isZh ? '加法運算 (Addition)' : 'Addition (+)'}
+                      <IconPlus size="1em" aria-hidden="true" /> {isZh ? '加法運算 (Addition)' : 'Addition (+)'}
                     </button>
                     <button
                       type="button"
                       className={`mode-btn ${subMode ? 'active' : ''}`}
                       onClick={() => setSubMode(true)}
                     >
-                      ➖ {isZh ? '減法運算 (2補數 Subtraction)' : 'Subtraction (-)'}
+                      <IconMinus size="1em" aria-hidden="true" /> {isZh ? '減法運算 (2補數 Subtraction)' : 'Subtraction (-)'}
                     </button>
                   </div>
                 </div>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from '../app/useRouter';
 import { useLanguage } from '../app/useLanguage';
+import { IconBookOpen, IconStar, IconTrendingUp } from '../components/ui/Icons';
 import './ContentPages.css';
 
 interface Milestone {
@@ -219,11 +220,11 @@ export function TimelinePage() {
 
           <div className="milestone-body-grid">
             <div className="milestone-col">
-              <h4>📖 {isZh ? '事件背景與技術突破' : 'Context & Breakthrough'}</h4>
+              <h4><IconBookOpen size="1em" aria-hidden="true" /> {isZh ? '事件背景與技術突破' : 'Context & Breakthrough'}</h4>
               <p>{isZh ? m.summaryZh : m.summaryEn}</p>
             </div>
             <div className="milestone-col highlight-col">
-              <h4>⭐ {isZh ? '歷史戰略意義與影響' : 'Historical Significance'}</h4>
+              <h4><IconStar size="1em" aria-hidden="true" /> {isZh ? '歷史戰略意義與影響' : 'Historical Significance'}</h4>
               <p>{isZh ? m.significanceZh : m.significanceEn}</p>
             </div>
           </div>
@@ -231,7 +232,7 @@ export function TimelinePage() {
 
         {/* Transistor Density Growth Scale Visualization */}
         <section className="density-scale-card">
-          <h3>📈 {isZh ? '摩爾定律的驚人指數級躍升' : 'Exponential Leap of Moore\'s Law'}</h3>
+          <h3><IconTrendingUp size="1em" aria-hidden="true" /> {isZh ? '摩爾定律的驚人指數級躍升' : "Exponential Leap of Moore's Law"}</h3>
           <p className="scale-desc">
             {isZh
               ? '從 1971 年 Intel 4004 的 2,300 顆電晶體，到 2024 年 NVIDIA Blackwell 的 2,080 億顆電晶體，密度提升超過 9,000 萬倍！若汽車速度也能依摩爾定律提升，現在一秒就能環繞地球 300 圈。'
